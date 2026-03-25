@@ -30,15 +30,19 @@ shadow_enabled = true
 [node name="Map" type="Node3D" parent="." unique_id=1522615066]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Map" unique_id=722694226]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.012177, -4.7683716e-07, -9.996942)
+layers = 3
 use_collision = true
+collision_layer = 3
 collision_mask = 2
 size = Vector3(90, 1, 86)
 material = ExtResource("2_u126m")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Map" unique_id=1817332740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25171, 2.15168, -42.5)
+layers = 3
 use_collision = true
+collision_layer = 3
 collision_mask = 2
 size = Vector3(7.497, 0.5, 7)
 material = ExtResource("2_wvi4p")
@@ -74,6 +78,7 @@ material = ExtResource("2_wvi4p")
 [node name="CSGPolygon1" type="CSGPolygon3D" parent="Map" unique_id=1284115999]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, 3.5, 1.5, 2.5)
 use_collision = true
+collision_layer = 3
 collision_mask = 2
 polygon = PackedVector2Array(-6, -1, 1, 7, 1, -1)
 material = ExtResource("2_wvi4p")
@@ -81,6 +86,7 @@ material = ExtResource("2_wvi4p")
 [node name="CSGPolygon5" type="CSGPolygon3D" parent="Map" unique_id=843869000]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4, 3.5, 1.5, -5.5)
 use_collision = true
+collision_layer = 3
 collision_mask = 2
 polygon = PackedVector2Array(-6, -1, -1, 2, 5, -1)
 material = ExtResource("2_wvi4p")
@@ -88,20 +94,25 @@ material = ExtResource("2_wvi4p")
 [node name="CSGPolygon6" type="CSGPolygon3D" parent="Map" unique_id=1425737670]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4, 3.5, 1.5, -29.5)
 use_collision = true
+collision_layer = 3
 collision_mask = 2
 polygon = PackedVector2Array(-6, -2, -6, 1, 4, 1)
 material = ExtResource("2_wvi4p")
 
 [node name="CSGPolygon2" type="CSGPolygon3D" parent="Map" unique_id=55164984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4, 3.5, 1.5, 11.5)
+layers = 3
 use_collision = true
+collision_layer = 3
 collision_mask = 2
 polygon = PackedVector2Array(-6, -1, 4, 5, 4, -1)
 material = ExtResource("2_wvi4p")
 
 [node name="CSGPolygon3" type="CSGPolygon3D" parent="Map" unique_id=1000557187]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 6, 3.5, 1.5, 22.5)
+layers = 3
 use_collision = true
+collision_layer = 3
 collision_mask = 2
 polygon = PackedVector2Array(-6, -1, 11, 5, 11, -1)
 material = ExtResource("2_wvi4p")
@@ -109,6 +120,7 @@ material = ExtResource("2_wvi4p")
 [node name="CSGPolygon4" type="CSGPolygon3D" parent="Map" unique_id=973731957]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4, 7.5, 0.5, 11.5)
 use_collision = true
+collision_layer = 3
 collision_mask = 2
 polygon = PackedVector2Array(0, 0, 0, 6, 8, 6, 1, 5)
 material = ExtResource("2_wvi4p")
@@ -116,6 +128,7 @@ material = ExtResource("2_wvi4p")
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Map" unique_id=1235930602]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.1189, -1.3117, 7.2949)
 use_collision = true
+collision_layer = 3
 collision_mask = 2
 radius = 4.0
 radial_segments = 64
@@ -125,6 +138,7 @@ material = ExtResource("2_wvi4p")
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Map" unique_id=399532544]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.7101, 1.33529, 26.4086)
 use_collision = true
+collision_layer = 3
 collision_mask = 2
 radius = 4.0
 sides = 16
@@ -143,6 +157,7 @@ material = ExtResource("2_wvi4p")
 [node name="CSGSphere3D4" type="CSGSphere3D" parent="Map" unique_id=1644887048]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.817, 0.174119, 20.8931)
 use_collision = true
+collision_layer = 3
 collision_mask = 2
 radius = 4.4
 radial_segments = 32

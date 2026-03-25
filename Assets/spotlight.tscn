@@ -13,7 +13,10 @@ metallic = 0.19999999
 roughness = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8eij0"]
-size = Vector3(0.83487713, 1.1569824, 0.83358085)
+size = Vector3(0.83487713, 1.2562256, 0.83358085)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k188o"]
+size = Vector3(1.5, 0.25, 1.5)
 
 [node name="Spotlight" unique_id=34729838 instance=ExtResource("1_8i167")]
 script = ExtResource("2_f1f2w")
@@ -25,6 +28,7 @@ surface_material_override/1 = SubResource("StandardMaterial3D_8eij0")
 [node name="SpotLight3D" type="SpotLight3D" parent="LightHead" index="0" unique_id=898069985]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0.25379044)
 light_energy = 2.0
+shadow_enabled = true
 spot_attenuation = 0.0
 spot_angle = 15.0
 
@@ -36,7 +40,16 @@ script = ExtResource("4_k188o")
 unique_name_in_owner = true
 
 [node name="CollisionArea" type="Area3D" parent="." index="2" unique_id=48894542]
+input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea" index="0" unique_id=1765090844]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 0.5784912, -0.058378458)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 0.5288696, -0.058378458)
 shape = SubResource("BoxShape3D_8eij0")
+
+[node name="PickUpArea" type="Area3D" parent="." index="3" unique_id=1656441967]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickUpArea" index="0" unique_id=1958091196]
+shape = SubResource("BoxShape3D_k188o")

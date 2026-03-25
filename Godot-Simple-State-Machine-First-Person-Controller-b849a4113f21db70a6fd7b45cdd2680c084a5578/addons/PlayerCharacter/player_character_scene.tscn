@@ -80,11 +80,22 @@ fov = 90.0
 near = 0.01
 far = 1000.0
 
+[node name="CameraRay" type="RayCast3D" parent="CameraHolder/Camera" unique_id=692838892]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -10)
+collision_mask = 2
+
+[node name="PickUpPoint" type="Node3D" parent="CameraHolder" unique_id=85623258]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, -1.5)
+
 [node name="Hitbox" type="CollisionShape3D" parent="." unique_id=599971163]
 unique_name_in_owner = true
 shape = SubResource("CapsuleShape3D_5yjma")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=242162467]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Hitbox" type="CollisionShape3D" parent="Area3D" unique_id=1071279854]
 shape = SubResource("CapsuleShape3D_5yjma")
@@ -116,6 +127,7 @@ script = ExtResource("16_5jm78")
 metadata/_edit_use_anchors_ = true
 
 [node name="Crosshair" type="CenterContainer" parent="HUD" unique_id=1592966225]
+custom_minimum_size = Vector2(5, 5)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -123,6 +135,11 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="HUD/Crosshair" unique_id=61035459]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=2004601024]
 offset_right = 248.0

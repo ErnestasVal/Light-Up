@@ -90,6 +90,7 @@ var state : String
 @onready var play_char : PlayerCharacter = $".."
 @onready var state_machine : StateMachine = %StateMachine
 @onready var hud : CanvasLayer = %HUD
+@onready var camera_ray : RayCast3D = %CameraRay
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) #set mouse mode as captured

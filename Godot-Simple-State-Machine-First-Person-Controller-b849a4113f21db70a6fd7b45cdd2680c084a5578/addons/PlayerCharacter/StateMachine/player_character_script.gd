@@ -77,6 +77,8 @@ var default_input_actions : Dictionary
 @onready var hud: CanvasLayer = %HUD
 @onready var ceiling_check: RayCast3D = %CeilingCheck
 @onready var floor_check: RayCast3D = %FloorCheck
+@onready var pick_up_point: Node3D = %PickUpPoint
+@onready var hitbox_area: Area3D = $Area3D
 
 func _ready() -> void:
 	#set and value references
