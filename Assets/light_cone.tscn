@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cf3fs5p0c00jq"]
+
+[ext_resource type="PackedScene" uid="uid://dwr5cvgqtg3hw" path="res://Assets/LightCone.glb" id="1_dvy1b"]
+[ext_resource type="Material" uid="uid://hr0p3srmwykb" path="res://Materials/LightConeMaterial.tres" id="2_lj5do"]
+
+[node name="LightCone" unique_id=842653397 instance=ExtResource("1_dvy1b")]
+
+[node name="Cone" parent="." index="0" unique_id=1820268192]
+surface_material_override/0 = ExtResource("2_lj5do")

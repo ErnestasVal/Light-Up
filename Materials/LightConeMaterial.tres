@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://hr0p3srmwykb"]
+
+[ext_resource type="Shader" uid="uid://c06ps8vuuyvng" path="res://Materials/LightConeShader.gdshader" id="1_u5o8g"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_u5o8g")
+shader_parameter/beam_color = Color(1, 0.95, 0.8, 1)
+shader_parameter/tip_brightness = 1.8
+shader_parameter/base_brightness = 0.3
+shader_parameter/edge_softness = 1.0
+shader_parameter/opacity = 0.50000002375
+shader_parameter/beam_density = 1.5000000475
+shader_parameter/noise_strength = 0.15
+shader_parameter/noise_scroll_speed = 0.4
+shader_parameter/noise_scale = 5.0

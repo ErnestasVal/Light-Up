@@ -1,0 +1,7 @@
+MeshInstance3D
+WorldEnvironment
+FogVolume
+SpotLight3D
+DirectionalLight3D
+StaticBody3D
+CollisionShape3D

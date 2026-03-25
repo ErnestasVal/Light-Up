@@ -1,0 +1,73 @@
+[gd_scene format=4 uid="uid://bgprkheochaus"]
+
+[ext_resource type="PackedScene" uid="uid://oj3blpxqf1bl" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/Map/template_map_scene.tscn" id="1_r0du0"]
+[ext_resource type="PackedScene" uid="uid://bdk5fmsn1utee" path="res://Assets/spotlight.tscn" id="2_r0du0"]
+[ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/player_character_scene.tscn" id="2_uu6xs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1l0kj"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xrahm"]
+_surfaces = [{
+"aabb": AABB(-10, -1, -10, 20, 2, 20),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAAAAP////8AAAAA//8AAAAAAAAAAP//AAD///////8AAAAAAAAAAAAA//8AAAAAAAD//wAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_glv2v"]
+resource_name = "Platform_Cube"
+_surfaces = [{
+"aabb": AABB(-10, -1, -10, 20, 2, 20),
+"attribute_data": PackedByteArray("/5//f//f/z//3/9//5//P/9f/z//nwAA/5//P/9fAAD/X////5//v/+f////X/+//x//f/9f/z//X/9//x//P/9f/3//n/8//5//f/9f/z//X/+//5//f/+f/7//X/9/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_1l0kj"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA//8AAP///////wAA//8AAP///////////////wAA////vwAA//////+//////////78AAAAA////vwAAAAD//1TVAAD//wAAVNUAAP////9U1QAAAAAAAFTVAAAAAAAA/7///wAA////v///AAAAAP+/AAAAAP///7///wAAAABU1f///////1TV/////wAAVNX//wAA//9U1QAAAAAAAP///////wAA//8AAP//AAD/////AAAAAP///3//v/9//7//f/+//3//v/////////////////////9U1VTVVNVU1VTVVNVU1VTVAAD/fwAA/38AAP9/AAD/f6oqqiqqKqoqqiqqKqoqqir/v/+//7//v/+//7//v/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xrahm")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uu6xs"]
+data = PackedVector3Array(10, 1, -10, -10, 1, 10, -10, 1, -10, 10, 1, -10, 10, 1, 10, -10, 1, 10, 10, -1, 10, -10, 1, 10, 10, 1, 10, 10, -1, 10, -10, -1, 10, -10, 1, 10, -10, -1, 10, -10, 1, -10, -10, 1, 10, -10, -1, 10, -10, -1, -10, -10, 1, -10, -10, -1, -10, 10, -1, 10, 10, -1, -10, -10, -1, -10, -10, -1, 10, 10, -1, 10, 10, -1, -10, 10, 1, 10, 10, 1, -10, 10, -1, -10, 10, -1, 10, 10, 1, 10, -10, -1, -10, 10, 1, -10, -10, 1, -10, -10, -1, -10, 10, -1, -10, 10, 1, -10)
+
+[node name="Node3D" type="Node3D" unique_id=1710965241]
+
+[node name="PlayerCharacter" parent="." unique_id=307017552 groups=["TopPart"] instance=ExtResource("2_uu6xs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.883458, 1, 0)
+jump_time_to_fall = 0.4
+
+[node name="TemplateMap" parent="." unique_id=507080638 instance=ExtResource("1_r0du0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1951386758]
+visible = false
+
+[node name="Cube2" type="MeshInstance3D" parent="StaticBody3D" unique_id=305366500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023, -1, 0.023)
+mesh = SubResource("ArrayMesh_glv2v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=735439238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023, -1, 0.023)
+shape = SubResource("ConcavePolygonShape3D_uu6xs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=132741672]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8.218487, 0)
+visible = false
+
+[node name="Spotlight" parent="." unique_id=1329307695 instance=ExtResource("2_r0du0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.716736, 0, 10.710951)
