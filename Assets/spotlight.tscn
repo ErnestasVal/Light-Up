@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdk5fmsn1utee"]
 
-[ext_resource type="PackedScene" uid="uid://b1nr65lpqm5ff" path="res://Assets/Spotlight.glb" id="1_8i167"]
+[ext_resource type="PackedScene" uid="uid://b1nr65lpqm5ff" path="res://Assets/Models/Spotlight.glb" id="1_8i167"]
 [ext_resource type="Script" uid="uid://cs0ds3tsrpbs1" path="res://Scripts/spotlight_script.gd" id="2_f1f2w"]
 [ext_resource type="PackedScene" uid="uid://cf3fs5p0c00jq" path="res://Assets/light_cone.tscn" id="3_8eij0"]
 [ext_resource type="Script" uid="uid://c7qmld37o2gap" path="res://Scripts/light_cone.gd" id="4_k188o"]
@@ -12,10 +12,13 @@ albedo_color = Color(1, 1, 0, 1)
 metallic = 0.19999999
 roughness = 0.0
 
-[node name="Spotlight" unique_id=1009920380 instance=ExtResource("1_8i167")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_8eij0"]
+size = Vector3(0.83487713, 1.1569824, 0.83358085)
+
+[node name="Spotlight" unique_id=34729838 instance=ExtResource("1_8i167")]
 script = ExtResource("2_f1f2w")
 
-[node name="LightHead" parent="." index="0" unique_id=30980137]
+[node name="LightHead" parent="." index="0" unique_id=1045480640]
 unique_name_in_owner = true
 surface_material_override/1 = SubResource("StandardMaterial3D_8eij0")
 
@@ -25,9 +28,15 @@ light_energy = 2.0
 spot_attenuation = 0.0
 spot_angle = 15.0
 
-[node name="LightCone" parent="LightHead" index="1" unique_id=1984950626 instance=ExtResource("3_8eij0")]
+[node name="LightCone" parent="LightHead" index="1" unique_id=842653397 instance=ExtResource("3_8eij0")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0.254)
 script = ExtResource("4_k188o")
 
-[node name="Leg" parent="." index="1" unique_id=1306668909]
+[node name="Leg" parent="." index="1" unique_id=915042714]
 unique_name_in_owner = true
+
+[node name="CollisionArea" type="Area3D" parent="." index="2" unique_id=48894542]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea" index="0" unique_id=1765090844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 0.5784912, -0.058378458)
+shape = SubResource("BoxShape3D_8eij0")

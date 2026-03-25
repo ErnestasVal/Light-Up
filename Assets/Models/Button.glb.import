@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dwr5cvgqtg3hw"
-path="res://.godot/imported/LightCone.glb-fb85ba3bd09519fb27aba890a5c53d5e.scn"
+uid="uid://8nl3g3tqttks"
+path="res://.godot/imported/Button.glb-2ab6bcee12d3a424dbbc33290eef4d41.scn"
 
 [deps]
 
-source_file="res://Assets/LightCone.glb"
-dest_files=["res://.godot/imported/LightCone.glb-fb85ba3bd09519fb27aba890a5c53d5e.scn"]
+source_file="res://Assets/Models/Button.glb"
+dest_files=["res://.godot/imported/Button.glb-2ab6bcee12d3a424dbbc33290eef4d41.scn"]
 
 [params]
 

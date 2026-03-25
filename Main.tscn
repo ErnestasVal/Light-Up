@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://oj3blpxqf1bl" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/Map/template_map_scene.tscn" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://bdk5fmsn1utee" path="res://Assets/spotlight.tscn" id="2_r0du0"]
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/player_character_scene.tscn" id="2_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://bsfedtk52fg8y" path="res://Assets/floor_button.tscn" id="4_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://kbflbqfugkss" path="res://Assets/static_light.tscn" id="5_fos0i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1l0kj"]
 resource_name = "Material"
@@ -50,6 +52,7 @@ data = PackedVector3Array(10, 1, -10, -10, 1, 10, -10, 1, -10, 10, 1, -10, 10, 1
 [node name="PlayerCharacter" parent="." unique_id=307017552 groups=["TopPart"] instance=ExtResource("2_uu6xs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.883458, 1, 0)
 jump_time_to_fall = 0.4
+nb_jumps_in_air_allowed = 0
 
 [node name="TemplateMap" parent="." unique_id=507080638 instance=ExtResource("1_r0du0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -69,5 +72,16 @@ shape = SubResource("ConcavePolygonShape3D_uu6xs")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8.218487, 0)
 visible = false
 
-[node name="Spotlight" parent="." unique_id=1329307695 instance=ExtResource("2_r0du0")]
+[node name="Spotlight" parent="." unique_id=1009920380 instance=ExtResource("2_r0du0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.716736, 0, 10.710951)
+angle = 30.0
+energy = 3.0
+
+[node name="Floor_Button" parent="." unique_id=942090966 node_paths=PackedStringArray("activateObject") instance=ExtResource("4_cm0pq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.291069, 0, 9.296589)
+activateObject = NodePath("../StaticLight")
+
+[node name="StaticLight" parent="." unique_id=344302640 instance=ExtResource("5_fos0i")]
+transform = Transform3D(0.0026698066, -0.7529801, -0.65803784, -0.033712488, 0.6575985, -0.75261414, 0.99942803, 0.024193427, -0.023629168, 11.157716, 3.7694068, 9.274019)
+isOn = false
+energy = 5.0

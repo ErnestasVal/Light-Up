@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b0k4ml30umyjk"
-path="res://.godot/imported/Platform.glb-addb882ef9b55b4e411ccf9f0a58c579.scn"
+uid="uid://b1nr65lpqm5ff"
+path="res://.godot/imported/Spotlight.glb-5cdd6bfa384e79116f9ee67c5a34d0af.scn"
 
 [deps]
 
-source_file="res://Assets/Platform.glb"
-dest_files=["res://.godot/imported/Platform.glb-addb882ef9b55b4e411ccf9f0a58c579.scn"]
+source_file="res://Assets/Models/Spotlight.glb"
+dest_files=["res://.godot/imported/Spotlight.glb-5cdd6bfa384e79116f9ee67c5a34d0af.scn"]
 
 [params]
 
@@ -37,6 +37,14 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"Glow": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/Glow.tres",
+"use_external/path": "uid://j68hry5e65hy"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

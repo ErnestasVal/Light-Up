@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b1nr65lpqm5ff"
-path="res://.godot/imported/Spotlight.glb-2f763912d923853a89c68c13adfa2d76.scn"
+uid="uid://dwr5cvgqtg3hw"
+path="res://.godot/imported/LightCone.glb-25927e59dba1aa65b26705986adc30d3.scn"
 
 [deps]
 
-source_file="res://Assets/Spotlight.glb"
-dest_files=["res://.godot/imported/Spotlight.glb-2f763912d923853a89c68c13adfa2d76.scn"]
+source_file="res://Assets/Models/LightCone.glb"
+dest_files=["res://.godot/imported/LightCone.glb-25927e59dba1aa65b26705986adc30d3.scn"]
 
 [params]
 
@@ -37,14 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"materials": {
-"Glow": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/Glow.tres",
-"use_external/path": "uid://j68hry5e65hy"
-}
-}
-}
+_subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

@@ -38,12 +38,6 @@ var walk_or_run: String = "WalkState" #keep in memory if play char was walking o
 @export var walk_accel: float = 11.0
 @export var walk_deccel: float = 10.0
 
-@export_group("Run variables")
-@export var run_speed: float = 12.0
-@export var run_accel: float = 10.0
-@export var run_deccel: float = 9.0
-@export var continious_run: bool = false #if true, doesn't need to keep run button on to run
-
 @export_group("Jump variables")
 @export var jump_height: float = 2.0
 @export var jump_time_to_peak: float = 0.3
@@ -68,11 +62,9 @@ var coyote_jump_on: bool = false
 @export var move_backward_action: StringName = "play_char_move_backward_action"
 @export var move_left_action: StringName = "play_char_move_left_action"
 @export var move_right_action: StringName = "play_char_move_right_action"
-@export var run_action: StringName = "play_char_run_action"
 @export var crouch_action: StringName = "play_char_crouch_action"
 @export var jump_action: StringName = "play_char_jump_action"
-@onready var input_actions_list : Array[StringName] = [move_forward_action, move_backward_action, move_left_action, move_right_action, 
-run_action, crouch_action, jump_action]
+@onready var input_actions_list : Array[StringName] = [move_forward_action, move_backward_action, move_left_action, move_right_action, crouch_action, jump_action]
 @export var check_on_ready_if_inputs_registered : bool = true
 var default_input_actions : Dictionary
 
@@ -104,7 +96,6 @@ func build_default_keybinding() -> void:
 		move_backward_action : [Key.KEY_S, Key.KEY_DOWN],
 		move_left_action : [Key.KEY_A, Key.KEY_LEFT],
 		move_right_action : [Key.KEY_D, Key.KEY_RIGHT],
-		run_action : [Key.KEY_SHIFT],
 		crouch_action : [Key.KEY_C],
 		jump_action : [Key.KEY_SPACE],
 	}

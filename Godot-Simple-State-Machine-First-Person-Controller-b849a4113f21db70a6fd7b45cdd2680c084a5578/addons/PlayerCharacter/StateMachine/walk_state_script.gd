@@ -58,9 +58,6 @@ func input_management() -> void:
 	if Input.is_action_just_pressed(play_char.crouch_action):
 		transitioned.emit(self, "CrouchState")
 		
-	if Input.is_action_just_pressed(play_char.run_action):
-		play_char.walk_or_run = "RunState"
-		transitioned.emit(self, "RunState")
 		
 func move(delta : float) -> void:
 	play_char.input_direction = Input.get_vector(play_char.move_left_action, play_char.move_right_action, play_char.move_forward_action, play_char.move_backward_action)

@@ -1,0 +1,10 @@
+res://Main.tscn
+res://Materials/LightConeShader.gdshader
+res://Scripts/static_light.gd
+res://Scripts/floor_button.gd
+res://Assets/static_light.tscn
+res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/player_character_scene.tscn
+res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/StateMachine/player_character_script.gd
+res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/StateMachine/idle_state_script.gd
+res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/StateMachine/walk_state_script.gd
+res://Assets/floor_button.tscn
