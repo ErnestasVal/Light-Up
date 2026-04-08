@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/player_character_scene.tscn" id="2_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://bsfedtk52fg8y" path="res://Assets/floor_button.tscn" id="4_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://kbflbqfugkss" path="res://Assets/static_light.tscn" id="5_fos0i"]
+[ext_resource type="PackedScene" uid="uid://cnagge4k0sc3j" path="res://Assets/solar_panel.tscn" id="6_3dxm6"]
+[ext_resource type="PackedScene" uid="uid://btexd4hh1w7cd" path="res://Assets/spotlight_with_grav.tscn" id="7_lgr22"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1l0kj"]
 resource_name = "Material"
@@ -72,16 +74,20 @@ shape = SubResource("ConcavePolygonShape3D_uu6xs")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8.218487, 0)
 visible = false
 
-[node name="Spotlight" parent="." unique_id=1009920380 instance=ExtResource("2_r0du0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.716736, 0, 10.710951)
-angle = 30.0
-energy = 3.0
-
 [node name="Floor_Button" parent="." unique_id=942090966 node_paths=PackedStringArray("activateObject") instance=ExtResource("4_cm0pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.291069, 0, 9.296589)
 activateObject = NodePath("../StaticLight")
 
 [node name="StaticLight" parent="." unique_id=344302640 instance=ExtResource("5_fos0i")]
 transform = Transform3D(0.0026698066, -0.7529801, -0.65803784, -0.033712488, 0.6575985, -0.75261414, 0.99942803, 0.024193427, -0.023629168, 11.157716, 4.437508, 9.274019)
-isOn = false
 energy = 5.0
+
+[node name="SolarPanel" parent="." unique_id=1585278521 node_paths=PackedStringArray("activateObject") instance=ExtResource("6_3dxm6")]
+transform = Transform3D(-0.16780123, 0.9858208, 0, -0.9858208, -0.16780123, 0, 0, 0, 1, 7.9642143, 2.1420598, 9.235154)
+activateObject = NodePath("../StaticLight")
+
+[node name="Spotlight" parent="." unique_id=955648232 instance=ExtResource("7_lgr22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.954468, 0, 0)
+
+[node name="SpotlightNoGravity" parent="." unique_id=34729838 instance=ExtResource("2_r0du0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.976, 0, 7.865)

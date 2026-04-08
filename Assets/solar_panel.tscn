@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cnagge4k0sc3j"]
+
+[ext_resource type="PackedScene" uid="uid://chumqbrlym8my" path="res://Assets/Models/SolarPanel.glb" id="1_20ib5"]
+[ext_resource type="Script" uid="uid://c0n3oyk8bt1tv" path="res://Scripts/solar_panel.gd" id="2_rbqgi"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_20ib5"]
+points = PackedVector3Array(-0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5)
+
+[node name="SolarPanel" unique_id=1585278521 instance=ExtResource("1_20ib5")]
+script = ExtResource("2_rbqgi")
+
+[node name="SolarActivationZone" type="Area3D" parent="." index="1" unique_id=574075324]
+collision_layer = 512
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SolarActivationZone" index="0" unique_id=1021883327]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_20ib5")

@@ -6,7 +6,8 @@ var isPickedUp : bool = false
 @onready var spotlightLegs : GeometryInstance3D = %Leg
 @onready var player = get_tree().get_first_node_in_group("PlayerCharacter")
 @onready var cameraRay : RayCast3D = player.cam_holder.camera_ray
-@onready var pickup_area : Area3D = $PickUpArea
+@onready var pickup_area : Area3D = %PickUpArea
+@onready var rigidbody : RigidBody3D = %RigidBody3D
 
 func _process(delta: float) -> void:
 	checkInputs()
@@ -25,10 +26,31 @@ func _process(delta: float) -> void:
 
 func checkInputs() -> void:
 	if Input.is_action_just_pressed("pick_up_object"):
-		if pickup_area.get_overlapping_areas().has(player.hitbox_area) || isPickedUp:
+		if isPickedUp:
+			# Always allow dropping the currently held object
 			handlePickup()
+		elif pickup_area.get_overlapping_areas().has(player.hitbox_area):
+			# Only pick up if no other object is already held
+			if not player.has_picked_up_object:
+				# Check we are the closest object to the player
+				if _is_closest_pickupable():
+					handlePickup()
+
+func _is_closest_pickupable() -> bool:
+	var closest = null
+	var closest_dist = INF
+	
+	for area in player.hitbox_area.get_overlapping_areas():
+		var obj = area.get_parent()  # adjust if your pickup_area is on the object itself
+		if obj.has_method("handlePickup"):
+			var dist = obj.global_position.distance_to(player.global_position)
+			if dist < closest_dist:
+				closest_dist = dist
+				closest = obj
+	
+	return closest == self
 
 func handlePickup() -> void:
 	isPickedUp = !isPickedUp
-	#lightHead.set_layer_mask_value(1, !isPickedUp)
-	#spotlightLegs.set_layer_mask_value(1, !isPickedUp)
+	rigidbody.freeze = !rigidbody.freeze
+	player.has_picked_up_object = isPickedUp  # track on the player

@@ -68,6 +68,8 @@ var coyote_jump_on: bool = false
 @export var check_on_ready_if_inputs_registered : bool = true
 var default_input_actions : Dictionary
 
+@export_group("Custom variables")
+var has_picked_up_object : bool = false
 #references variables
 @onready var cam_holder: Node3D = %CameraHolder
 @onready var cam: Camera3D = %Camera

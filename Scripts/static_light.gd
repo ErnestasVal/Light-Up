@@ -1,16 +1,28 @@
 class_name StaticLight
 extends LightBase
 
-@export var isOn : bool = true
-@export var isActivated : bool = false
+@export var neededToActivate = 1
+@export var inverted : bool = false
+var isActivated : bool
+var activeCount : int = 0
 
 func _ready() -> void:
 	super()
-	lightCone.visible = isOn
-	light.visible = isOn
+	isActivated = inverted
+	lightCone.visible = isActivated
+	light.visible = isActivated
+
+func increment():
+	activeCount += 1
+	if activeCount >= neededToActivate && isActivated == inverted:
+		toggle()
+
+func decrement():
+	activeCount -= 1
+	if activeCount < neededToActivate && isActivated != inverted:
+		toggle()
 
 func toggle() -> void:
-	isOn = !isOn
 	isActivated = !isActivated
-	lightCone.visible = isOn
-	light.visible = isOn
+	lightCone.visible = isActivated
+	light.visible = isActivated

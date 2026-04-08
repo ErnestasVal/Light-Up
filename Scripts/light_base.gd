@@ -6,8 +6,8 @@ extends Node3D
 @export var range : float = 5
 @export var energy : float = 2
 
-@onready var light : SpotLight3D = $LightHead/SpotLight3D
-@onready var lightCone : Node3D = $LightHead/LightCone
+@onready var light : SpotLight3D = %SpotLight3D
+@onready var lightCone : Node3D = %LightCone
 @onready var lightHead : MeshInstance3D = %LightHead
 
 func _ready() -> void:

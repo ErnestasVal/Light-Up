@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://c06ps8vuuyvng" path="res://Materials/LightConeShader.gdshader" id="1_u5o8g"]
 
 [resource]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_u5o8g")
 shader_parameter/beam_color = Color(1, 0.95, 0.8, 1)
