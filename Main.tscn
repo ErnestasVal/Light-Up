@@ -1,53 +1,21 @@
-[gd_scene format=4 uid="uid://bgprkheochaus"]
+[gd_scene format=3 uid="uid://bgprkheochaus"]
 
 [ext_resource type="PackedScene" uid="uid://oj3blpxqf1bl" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/Map/template_map_scene.tscn" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/player_character_scene.tscn" id="2_uu6xs"]
-[ext_resource type="PackedScene" uid="uid://bsfedtk52fg8y" path="res://Assets/floor_button.tscn" id="4_cm0pq"]
-[ext_resource type="PackedScene" uid="uid://kbflbqfugkss" path="res://Assets/static_light.tscn" id="5_fos0i"]
-[ext_resource type="PackedScene" uid="uid://cnagge4k0sc3j" path="res://Assets/solar_panel.tscn" id="6_3dxm6"]
-[ext_resource type="PackedScene" uid="uid://d4dmvixcovuwx" path="res://Assets/spotlight.tscn" id="7_lgr22"]
-[ext_resource type="PackedScene" uid="uid://1jwse6o4qcxl" path="res://Assets/push_button.tscn" id="8_trn2v"]
+[ext_resource type="PackedScene" uid="uid://bsfedtk52fg8y" path="res://Assets/Objects/Signals/floor_button.tscn" id="4_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://kbflbqfugkss" path="res://Assets/Objects/Lights/static_light.tscn" id="5_fos0i"]
+[ext_resource type="PackedScene" uid="uid://cnagge4k0sc3j" path="res://Assets/Objects/Signals/solar_panel.tscn" id="6_3dxm6"]
+[ext_resource type="PackedScene" uid="uid://d4dmvixcovuwx" path="res://Assets/Objects/Lights/spotlight.tscn" id="7_lgr22"]
+[ext_resource type="PackedScene" uid="uid://c3vqub7h5dxtw" path="res://Assets/Objects/Indicators/progress_panel.tscn" id="8_03owx"]
+[ext_resource type="PackedScene" uid="uid://1jwse6o4qcxl" path="res://Assets/Objects/Signals/push_button.tscn" id="8_trn2v"]
+[ext_resource type="PackedScene" uid="uid://bavuikw7kqp7" path="res://Assets/Objects/Indicators/simple_indicator.tscn" id="9_03owx"]
+[ext_resource type="PackedScene" uid="uid://bbi03akaxyocj" path="res://Assets/Objects/Activatables/door.tscn" id="10_wkp8b"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1l0kj"]
-resource_name = "Material"
-cull_mode = 2
-albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
-roughness = 0.5
+[sub_resource type="ViewportTexture" id="ViewportTexture_wkp8b"]
+viewport_path = NodePath("../ProgressPanel2/SubViewport")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_xrahm"]
-_surfaces = [{
-"aabb": AABB(-10, -1, -10, 20, 2, 20),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
-"name": "Material",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("/////wAAAAAAAP////8AAAAA//8AAAAAAAAAAP//AAD///////8AAAAAAAAAAAAA//8AAAAAAAD//wAA//8AAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_glv2v"]
-resource_name = "Platform_Cube"
-_surfaces = [{
-"aabb": AABB(-10, -1, -10, 20, 2, 20),
-"attribute_data": PackedByteArray("/5//f//f/z//3/9//5//P/9f/z//nwAA/5//P/9fAAD/X////5//v/+f////X/+//x//f/9f/z//X/9//x//P/9f/3//n/8//5//f/9f/z//X/+//5//f/+f/7//X/9/"),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
-"material": SubResource("StandardMaterial3D_1l0kj"),
-"name": "Material",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("/////wAA//8AAP///////wAA//8AAP///////////////wAA////vwAA//////+//////////78AAAAA////vwAAAAD//1TVAAD//wAAVNUAAP////9U1QAAAAAAAFTVAAAAAAAA/7///wAA////v///AAAAAP+/AAAAAP///7///wAAAABU1f///////1TV/////wAAVNX//wAA//9U1QAAAAAAAP///////wAA//8AAP//AAD/////AAAAAP///3//v/9//7//f/+//3//v/////////////////////9U1VTVVNVU1VTVVNVU1VTVAAD/fwAA/38AAP9/AAD/f6oqqiqqKqoqqiqqKqoqqir/v/+//7//v/+//7//v/+/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_xrahm")
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uu6xs"]
-data = PackedVector3Array(10, 1, -10, -10, 1, 10, -10, 1, -10, 10, 1, -10, 10, 1, 10, -10, 1, 10, 10, -1, 10, -10, 1, 10, 10, 1, 10, 10, -1, 10, -10, -1, 10, -10, 1, 10, -10, -1, 10, -10, 1, -10, -10, 1, 10, -10, -1, 10, -10, -1, -10, -10, 1, -10, -10, -1, -10, 10, -1, 10, 10, -1, -10, -10, -1, -10, -10, -1, 10, 10, -1, 10, 10, -1, -10, 10, 1, 10, 10, 1, -10, 10, -1, -10, 10, -1, 10, 10, 1, 10, -10, -1, -10, 10, 1, -10, -10, 1, -10, -10, -1, -10, 10, -1, -10, 10, 1, -10)
+[sub_resource type="ViewportTexture" id="ViewportTexture_20pc6"]
+viewport_path = NodePath("SubViewport")
 
 [node name="Node3D" type="Node3D" unique_id=1710965241]
 
@@ -59,36 +27,60 @@ nb_jumps_in_air_allowed = 0
 [node name="TemplateMap" parent="." unique_id=507080638 instance=ExtResource("1_r0du0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1951386758]
-visible = false
+[node name="Signals" type="Node" parent="." unique_id=1941028693]
 
-[node name="Cube2" type="MeshInstance3D" parent="StaticBody3D" unique_id=305366500]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023, -1, 0.023)
-mesh = SubResource("ArrayMesh_glv2v")
+[node name="PushButton2" parent="Signals" unique_id=757546704 node_paths=PackedStringArray("activateObject") instance=ExtResource("8_trn2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.034283, -9.536743e-07, 0.17395544)
+activateObject = NodePath("../../Activatable/Door")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=735439238]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023, -1, 0.023)
-shape = SubResource("ConcavePolygonShape3D_uu6xs")
+[node name="SolarPanel" parent="Signals" unique_id=1585278521 node_paths=PackedStringArray("activateObject") instance=ExtResource("6_3dxm6")]
+transform = Transform3D(-4.3711385e-08, 0.9999999, 0, -0.9999999, -4.3711385e-08, 0, 0, 0, 1, 4.5402884, 1.7122889, 0.84771824)
+activateObject = NodePath("../../Activatable/StaticLight")
+deactivation_time = 0.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=132741672]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8.218487, 0)
-visible = false
-
-[node name="Floor_Button" parent="." unique_id=942090966 node_paths=PackedStringArray("activateObject") instance=ExtResource("4_cm0pq")]
+[node name="Floor_Button" parent="Signals" unique_id=942090966 node_paths=PackedStringArray("activateObject") instance=ExtResource("4_cm0pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.291069, 0, 9.296589)
-activateObject = NodePath("../StaticLight")
+activateObject = NodePath("../../Activatable/StaticLight")
+activation_time = 0.0
+deactivation_time = 0.0
 
-[node name="StaticLight" parent="." unique_id=344302640 instance=ExtResource("5_fos0i")]
+[node name="PushButton" parent="Signals" unique_id=1639143604 node_paths=PackedStringArray("activateObject") instance=ExtResource("8_trn2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.561985, -4.7683716e-07, 7.166819)
+activateObject = NodePath("../../Activatable/StaticLight")
+
+[node name="Activatable" type="Node" parent="." unique_id=201937387]
+
+[node name="StaticLight" parent="Activatable" unique_id=344302640 instance=ExtResource("5_fos0i")]
 transform = Transform3D(0.0026698066, -0.7529801, -0.65803784, -0.033712488, 0.6575985, -0.75261414, 0.99942803, 0.024193427, -0.023629168, 11.157716, 4.437508, 9.274019)
 energy = 5.0
 
-[node name="SolarPanel" parent="." unique_id=1585278521 node_paths=PackedStringArray("activateObject") instance=ExtResource("6_3dxm6")]
-transform = Transform3D(-4.3711385e-08, 0.9999999, 0, -0.9999999, -4.3711385e-08, 0, 0, 0, 1, 4.5402884, 1.7122889, 0.84771824)
-activateObject = NodePath("../StaticLight")
+[node name="Door" parent="Activatable" unique_id=466823853 instance=ExtResource("10_wkp8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.570906, -4.7683716e-07, 0.21719122)
 
-[node name="PushButton" parent="." unique_id=1639143604 node_paths=PackedStringArray("activateObject") instance=ExtResource("8_trn2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.561985, -4.7683716e-07, 7.166819)
-activateObject = NodePath("../StaticLight")
+[node name="Spots" type="Node" parent="." unique_id=909863356]
 
-[node name="Spotlight" parent="." unique_id=12900627 instance=ExtResource("7_lgr22")]
+[node name="Spotlight2" parent="Spots" unique_id=2084778349 instance=ExtResource("7_lgr22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.084984, 0.2940948, 6.952284)
+
+[node name="Spotlight" parent="Spots" unique_id=12900627 instance=ExtResource("7_lgr22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.404848, 0, 7.8634768)
+
+[node name="Indicators" type="Node" parent="." unique_id=1375547394]
+
+[node name="ProgressPanel" parent="Indicators" unique_id=1599876708 node_paths=PackedStringArray("signal_object") instance=ExtResource("8_03owx")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, 4.5169473, 1.6279687, 1.9515903)
+texture = SubResource("ViewportTexture_wkp8b")
+signal_object = NodePath("../../Signals/SolarPanel")
+
+[node name="ProgressPanel2" parent="Indicators" unique_id=740939824 node_paths=PackedStringArray("signal_object") instance=ExtResource("8_03owx")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 6.838138, 1.5013366, 7.456917)
+texture = SubResource("ViewportTexture_20pc6")
+signal_object = NodePath("../../Signals/PushButton")
+
+[node name="SimpleIndicator2" parent="Indicators" unique_id=2035532517 node_paths=PackedStringArray("signal_object") instance=ExtResource("9_03owx")]
+transform = Transform3D(-2.5153502e-08, 0.12014407, 0.5878481, 5.2516644e-09, 0.5878481, -0.12014407, -0.6, 1.08561694e-10, -2.5695657e-08, 7.9458447, 2.1350482, 9.2646675)
+signal_object = NodePath("../../Signals/PushButton")
+
+[node name="SimpleIndicator" parent="Indicators" unique_id=170117660 node_paths=PackedStringArray("signal_object") instance=ExtResource("9_03owx")]
+transform = Transform3D(-2.5695655e-08, 0.12014407, 0.5878481, 5.251663e-09, 0.5878481, -0.12014407, -0.59999996, -2.092886e-17, -2.6226832e-08, 8.192721, 3.441035, 9.2646675)
+signal_object = NodePath("../../Signals/Floor_Button")

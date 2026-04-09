@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://chyl1jyifs654"]
+
+[ext_resource type="Texture2D" uid="uid://c4dwh84hok8vs" path="res://Assets/Textures/Under.png" id="1_08kr8"]
+[ext_resource type="Texture2D" uid="uid://clhc2j4m4m3a7" path="res://Assets/Textures/Progress.png" id="2_wrqkk"]
+
+[node name="SubViewport" type="SubViewport" unique_id=1387548272]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(200, 200)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1351565864]
+offset_right = 200.0
+offset_bottom = 200.0
+max_value = 2.0
+step = 0.001
+fill_mode = 4
+texture_under = ExtResource("1_08kr8")
+texture_progress = ExtResource("2_wrqkk")

@@ -1,8 +1,8 @@
-res://Materials/LightConeShader.gdshader
-res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/player_character_scene.tscn
-res://Scripts/spotlight_script.gd
-res://Assets/push_button.tscn
-res://Scripts/push_button.gd
-res://Scripts/signal_base.gd
 res://Main.tscn
-res://Assets/spotlight_with_grav.tscn
+res://Assets/Materials/LightConeShader.gdshader
+res://Assets/Objects/Activatables/door.tscn
+res://Scripts/Activatables/door_script.gd
+res://Scripts/Activatables/activatable_base.gd
+res://Assets/Objects/Signals/push_button.tscn
+res://Assets/Objects/Indicators/progress_panel.tscn
+res://Scripts/Signals/signal_base.gd

@@ -69,7 +69,19 @@ var coyote_jump_on: bool = false
 var default_input_actions : Dictionary
 
 @export_group("Custom variables")
+# At the top of your script - add these variables
+var hold_offset := Vector3.ZERO          # dynamic offset applied to pick_up_point
+var target_offset := Vector3.ZERO
+const OFFSET_LERP_SPEED := 8.0
+var default_pickup_offset : Vector3
+# Tweak these to taste
+const NEAR_OFFSET_UP := Vector3(0, 1, 0)     # raise when near something
+const NEAR_OFFSET_IN := Vector3(0, 0, 0.45)    # pull closer when near something
 var has_picked_up_object : bool = false
+var picked_up_object : RigidBody3D
+@export var wall_push_strength := 8.0
+@onready var proximity_cast: ShapeCast3D = $CameraHolder/PickUpPoint/ShapeCast3D
+
 #references variables
 @onready var cam_holder: Node3D = %CameraHolder
 @onready var cam: Camera3D = %Camera
@@ -89,6 +101,7 @@ func _ready() -> void:
 	jump_cooldown = -1.0
 	nb_jumps_in_air_allowed_ref = nb_jumps_in_air_allowed
 	coyote_jump_cooldown_ref = coyote_jump_cooldown
+	default_pickup_offset = pick_up_point.position
 	
 	build_default_keybinding()
 	input_actions_check()
@@ -133,9 +146,50 @@ func input_actions_check() -> void:
 					
 func _physics_process(_delta: float) -> void:
 	modify_physics_properties()
-
+	if has_picked_up_object:
+		_update_hold_offset(_delta)
+		pick_up_point.position = default_pickup_offset + hold_offset
+		_apply_wall_pushback()
 	move_and_slide()
 	
+func _update_hold_offset(delta: float) -> void:
+	proximity_cast.force_shapecast_update()
+	target_offset = Vector3.ZERO
+
+	for i in proximity_cast.get_collision_count():
+		var col = proximity_cast.get_collider(i)
+		target_offset = NEAR_OFFSET_UP + NEAR_OFFSET_IN
+
+	hold_offset = hold_offset.lerp(target_offset, OFFSET_LERP_SPEED * delta)
+
+func _apply_wall_pushback() -> void:
+	if not has_picked_up_object:
+		return
+	proximity_cast.force_shapecast_update()
+	if not proximity_cast.is_colliding():
+		return
+	for i in proximity_cast.get_collision_count():
+		var normal: Vector3 = proximity_cast.get_collision_normal(i)
+		
+		if abs(normal.dot(Vector3.UP)) > 0.5:
+			# Ignore the floor the player is standing on
+			if is_on_floor() and proximity_cast.get_collider(i) == floor_check.get_collider():
+				continue
+			# Only drop if the held object's hold point is physically
+			# inside or above the surface (cast hitting it from below)
+			var hit_point: Vector3 = proximity_cast.get_collision_point(i)
+			var hold_point: Vector3 = pick_up_point.global_position
+			# If the hit is above the hold point, the object is clipping up into it
+			if hit_point.y > hold_point.y - 0.1 and hold_offset.y >= NEAR_OFFSET_UP.y / 2:
+				picked_up_object.handleActivate()
+				return
+			continue
+
+		# Wall: hard stop
+		var into_wall: float = velocity.dot(-normal)
+		if into_wall > 0.0:
+			velocity += normal * into_wall
+
 func modify_physics_properties() -> void:
 	last_frame_position = global_position #get play char global position every frame
 	last_frame_velocity = velocity #get play char velocity every frame

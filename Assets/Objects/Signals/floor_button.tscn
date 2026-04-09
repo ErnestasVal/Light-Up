@@ -1,0 +1,98 @@
+[gd_scene format=4 uid="uid://bsfedtk52fg8y"]
+
+[ext_resource type="Script" uid="uid://b1kj5aafu3o8l" path="res://Scripts/Signals/floor_button.gd" id="2_nlqwu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2f82b"]
+size = Vector3(1, 0.061694335, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b81af"]
+resource_name = "Legs"
+cull_mode = 2
+albedo_color = Color(0.081062496, 0.081062496, 0.081062496, 1)
+metallic = 0.35
+roughness = 0.45000005
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r42ow"]
+resource_name = "Button"
+cull_mode = 2
+albedo_color = Color(0.5411431, 0.21652305, 0.21652305, 1)
+roughness = 0.8090909
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_h7jlu"]
+_surfaces = [{
+"aabb": AABB(-0.59967136, 0, -0.59967136, 1.1993427, 0.025, 1.1993427),
+"format": 34359742465,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAQAEAAIAAgAFAAAAAgAEAAUAAQAGAAQAAwAGAAEABwAFAAQABwAEAAgACAAEAAYACQAFAAcACAAGAAoACQALAAUACgALAAkACgAGAAsAAwALAAYAAAAFAAsAAAALAAMA"),
+"name": "Legs",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("EIQZvwAAAAAQhBk/EIQZPwAAAAAQhBm/EIQZvwAAAAAQhBm/EIQZPwAAAAAQhBk/EIQZv83MzDwQhBm/EIQZv83MzDwQhBk/EIQZP83MzDwQhBm/D0gPv83MzDwPSA8/D0gPv83MzDwPSA+/D0gPP83MzDwPSA8/D0gPP83MzDwPSA+/EIQZP83MzDwQhBk/")
+}, {
+"aabb": AABB(-0.5596933, 0.025, -0.5596933, 1.1193866, 0.014999999, 1.1193866),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQAAAAFAAEAAwABAAUABgAFAAAABAADAAcABAAHAAYAAwAFAAcABgAHAAUA"),
+"name": "Button",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("D0gPP83MzDwPSA+/D0gPvwrXIz0PSA+/D0gPv83MzDwPSA+/D0gPvwrXIz0PSA8/D0gPv83MzDwPSA8/D0gPPwrXIz0PSA+/D0gPP83MzDwPSA8/D0gPPwrXIz0PSA8/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dxmn0"]
+resource_name = "Button_Plane"
+_surfaces = [{
+"aabb": AABB(-0.59967136, 0, -0.59967136, 1.1993427, 0.025, 1.1993427),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAAAAAACAP4qICD13d3c/AAAAAAAAAACKiAg9oIgIPQAAgD8AAAAAAAAAAAAAgD94d3c/gIgIPXZ3dz93d3c/AACAPwAAgD8="),
+"format": 34359742487,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFgAVABcAFAAYABUAFgAXABkAGgAYABQAGQAXABsAGgAbABgAGQAbABoA"),
+"material": SubResource("StandardMaterial3D_b81af"),
+"name": "Legs",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("EIQZvwAAAAAQhBk/EIQZPwAAAAAQhBm/EIQZvwAAAAAQhBm/EIQZPwAAAAAQhBk/EIQZPwAAAAAQhBk/EIQZP83MzDwQhBm/EIQZPwAAAAAQhBm/EIQZP83MzDwQhBk/EIQZvwAAAAAQhBm/EIQZv83MzDwQhBk/EIQZvwAAAAAQhBk/EIQZv83MzDwQhBm/EIQZPwAAAAAQhBm/EIQZv83MzDwQhBm/EIQZvwAAAAAQhBm/EIQZP83MzDwQhBm/EIQZvwAAAAAQhBk/EIQZP83MzDwQhBk/EIQZPwAAAAAQhBk/EIQZv83MzDwQhBk/D0gPv83MzDwPSA8/EIQZv83MzDwQhBm/D0gPv83MzDwPSA+/EIQZP83MzDwQhBm/EIQZv83MzDwQhBk/D0gPP83MzDwPSA+/D0gPP83MzDwPSA8/EIQZP83MzDwQhBk//38AAP///z//fwAA////P/9/AAD///8//38AAP///z////9/////v////3////+/////f////7////9/////vwAA/3////+/AAD/f////78AAP9/////vwAA/3////+//////////7//////////v/////////+//////////7//f/9/////P/9//3////8//3//f////z//f/9/////P/9////+//+//3///////7//f///////v/9///////+//3////7//7//f///////v/9///////+//3///////78=")
+}, {
+"aabb": AABB(-0.5596933, 0.025, -0.5596933, 1.1193866, 0.014999999, 1.1193866),
+"attribute_data": PackedByteArray("eHd3P4CICD2KiAg9oIgIPYqICD2giAg9eHd3P4CICD2KiAg9d3d3P3h3dz+AiAg9dnd3P3d3dz+KiAg9oIgIPYqICD13d3c/dnd3P3d3dz92d3c/d3d3P4qICD13d3c/dnd3P3d3dz94d3c/gIgIPXh3dz+AiAg9dnd3P3d3dz+KiAg9oIgIPYqICD13d3c/iogIPXd3dz+KiAg9oIgIPQ=="),
+"format": 34359742487,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_r42ow"),
+"name": "Button",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("D0gPP83MzDwPSA+/D0gPvwrXIz0PSA+/D0gPv83MzDwPSA+/D0gPPwrXIz0PSA+/D0gPvwrXIz0PSA8/D0gPPwrXIz0PSA+/D0gPPwrXIz0PSA8/D0gPvwrXIz0PSA+/D0gPv83MzDwPSA8/D0gPPwrXIz0PSA8/D0gPP83MzDwPSA8/D0gPvwrXIz0PSA8/D0gPP83MzDwPSA8/D0gPPwrXIz0PSA+/D0gPP83MzDwPSA+/D0gPPwrXIz0PSA8/D0gPv83MzDwPSA+/D0gPvwrXIz0PSA8/D0gPv83MzDwPSA8/D0gPvwrXIz0PSA+//////////7//////////v/////////+//////////7//f///////v/9///////+//3///////7//f////v//v/9//3////8//3//f////z//f/9/////P/9//3////8/////f////7////9/////v////3////+/////f////78AAP9/////vwAA/3////+/AAD/f////78AAP9/////vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_h7jlu")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dxmn0"]
+size = Vector3(1.1993427, 0.04, 1.1993427)
+
+[node name="FloorButton" type="StaticBody3D" unique_id=38670477]
+script = ExtResource("2_nlqwu")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=373919552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1881982260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013325091, 0)
+shape = SubResource("BoxShape3D_2f82b")
+
+[node name="Button" type="MeshInstance3D" parent="." unique_id=297567117]
+mesh = SubResource("ArrayMesh_dxmn0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=856870242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+shape = SubResource("BoxShape3D_dxmn0")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
