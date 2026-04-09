@@ -10,15 +10,17 @@ func _ready() -> void:
 		activateObject.increment()
 
 func activate():
-	activated = !inverted
-	if !inverted && activateObject != null && activateObject.has_method("increment"):
-		activateObject.increment()
-	if inverted && activateObject != null && activateObject.has_method("decrement"):
-		activateObject.decrement()
+	if activated != !inverted:
+		activated = !inverted
+		if !inverted && activateObject != null && activateObject.has_method("increment"):
+			activateObject.increment()
+		if inverted && activateObject != null && activateObject.has_method("decrement"):
+			activateObject.decrement()
 
 func deactivate():
-	activated = inverted
-	if !inverted && activateObject != null && activateObject.has_method("decrement"):
-		activateObject.decrement()
-	if inverted && activateObject != null && activateObject.has_method("increment"):
-		activateObject.increment()
+	if activated != inverted:
+		activated = inverted
+		if !inverted && activateObject != null && activateObject.has_method("decrement"):
+			activateObject.decrement()
+		if inverted && activateObject != null && activateObject.has_method("increment"):
+			activateObject.increment()

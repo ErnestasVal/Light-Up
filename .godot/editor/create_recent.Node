@@ -1,6 +1,6 @@
-SolarPanel
 RigidBody3D
 Area3D
+SolarPanel
 StaticBody3D
 RayCast3D
 Node3D

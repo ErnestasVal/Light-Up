@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://bgprkheochaus"]
 
 [ext_resource type="PackedScene" uid="uid://oj3blpxqf1bl" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/Map/template_map_scene.tscn" id="1_r0du0"]
-[ext_resource type="PackedScene" uid="uid://bdk5fmsn1utee" path="res://Assets/spotlight.tscn" id="2_r0du0"]
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/player_character_scene.tscn" id="2_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://bsfedtk52fg8y" path="res://Assets/floor_button.tscn" id="4_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://kbflbqfugkss" path="res://Assets/static_light.tscn" id="5_fos0i"]
 [ext_resource type="PackedScene" uid="uid://cnagge4k0sc3j" path="res://Assets/solar_panel.tscn" id="6_3dxm6"]
-[ext_resource type="PackedScene" uid="uid://btexd4hh1w7cd" path="res://Assets/spotlight_with_grav.tscn" id="7_lgr22"]
+[ext_resource type="PackedScene" uid="uid://d4dmvixcovuwx" path="res://Assets/spotlight.tscn" id="7_lgr22"]
+[ext_resource type="PackedScene" uid="uid://1jwse6o4qcxl" path="res://Assets/push_button.tscn" id="8_trn2v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1l0kj"]
 resource_name = "Material"
@@ -83,11 +83,12 @@ transform = Transform3D(0.0026698066, -0.7529801, -0.65803784, -0.033712488, 0.6
 energy = 5.0
 
 [node name="SolarPanel" parent="." unique_id=1585278521 node_paths=PackedStringArray("activateObject") instance=ExtResource("6_3dxm6")]
-transform = Transform3D(-0.16780123, 0.9858208, 0, -0.9858208, -0.16780123, 0, 0, 0, 1, 7.9642143, 2.1420598, 9.235154)
+transform = Transform3D(-4.3711385e-08, 0.9999999, 0, -0.9999999, -4.3711385e-08, 0, 0, 0, 1, 4.5402884, 1.7122889, 0.84771824)
 activateObject = NodePath("../StaticLight")
 
-[node name="Spotlight" parent="." unique_id=955648232 instance=ExtResource("7_lgr22")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.954468, 0, 0)
+[node name="PushButton" parent="." unique_id=1639143604 node_paths=PackedStringArray("activateObject") instance=ExtResource("8_trn2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.561985, -4.7683716e-07, 7.166819)
+activateObject = NodePath("../StaticLight")
 
-[node name="SpotlightNoGravity" parent="." unique_id=34729838 instance=ExtResource("2_r0du0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.976, 0, 7.865)
+[node name="Spotlight" parent="." unique_id=12900627 instance=ExtResource("7_lgr22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.404848, 0, 7.8634768)
