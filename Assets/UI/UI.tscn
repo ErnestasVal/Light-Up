@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://dfdyaci0m2g47"]
+
+[ext_resource type="Script" uid="uid://cpvr0tnjx2aqp" path="res://Assets/UI/ui.gd" id="1_0dueh"]
+
+[sub_resource type="Animation" id="Animation_0ix0h"]
+resource_name = "EnterLevel"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_706bw"]
+resource_name = "ExitLevel"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0dueh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ix0h"]
+_data = {
+&"EnterLevel": SubResource("Animation_0ix0h"),
+&"ExitLevel": SubResource("Animation_706bw"),
+&"RESET": SubResource("Animation_0dueh")
+}
+
+[node name="UI" type="CanvasLayer" unique_id=1881455452]
+script = ExtResource("1_0dueh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1695843961]
+libraries/ = SubResource("AnimationLibrary_0ix0h")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=480140763]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0)
+
+[node name="Crosshair" type="CenterContainer" parent="." unique_id=1622714558]
+custom_minimum_size = Vector2(5, 5)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Crosshair" unique_id=845593440]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+mouse_filter = 1

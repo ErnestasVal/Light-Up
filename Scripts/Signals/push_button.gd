@@ -16,14 +16,14 @@ func checkInputs() -> void:
 		if hitbox.get_overlapping_areas().has(player.hitbox_area):
 			if not player.has_picked_up_object:
 				# Check we are the closest object to the player
-				if _is_closest_interactable():
+				if _is_closest_activatable():
 					activate()
 
 func activate():
 	animation_player.play("button_push")
 	super()
 
-func _is_closest_interactable() -> bool:
+func _is_closest_activatable() -> bool:
 	var closest = null
 	var closest_dist = INF
 	

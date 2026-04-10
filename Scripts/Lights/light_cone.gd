@@ -1,3 +1,4 @@
+class_name LightCone
 extends Node3D
 @onready var node : Node3D = $"."
 @onready var light : SpotLight3D = $"../SpotLight3D"
@@ -6,14 +7,8 @@ extends Node3D
 
 @export var cone_tip_offset: Vector3 = Vector3.ZERO  # local offset if needed
 @export var cone_direction_local: Vector3 = Vector3.DOWN
-var cone_height: float = 0
-var cone_half_angle_deg: float = 0
 # Tracks which planes are currently "inside"
 var planes_inside: Dictionary = {}  # Node -> bool
-
-func _ready() -> void:
-	cone_height = light.spot_range
-	cone_half_angle_deg = light.spot_angle
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -47,18 +42,22 @@ func is_point_in_cone(point: Vector3) -> bool:
 	var to_point = point - tip
 	var projected = to_point.dot(dir)
 
-	if projected < 0.0 or projected > cone_height:
+	if projected < 0.0 or projected > light.spot_range:
 		return false
 
 	var angle = rad_to_deg(acos(clamp(to_point.normalized().dot(dir), -1.0, 1.0)))
-	return angle <= cone_half_angle_deg
+	return angle <= light.spot_angle
 
 func _on_plane_entered(plane: Node):
-	plane.activate(light.light_color)
+	plane.activate(self, light.light_color)
 
 func _on_plane_exited(plane: Node):
-	plane.deactivate(light.light_color)
+	plane.deactivate(self, light.light_color)
 
 func _notification(what):
-	if what == NOTIFICATION_PREDELETE:
-		planes_inside.clear()
+	if what == NOTIFICATION_VISIBILITY_CHANGED:
+		if not visible:
+			for plane in planes_inside.keys():
+				if is_instance_valid(plane) and planes_inside[plane]:
+					planes_inside[plane] = false
+					_on_plane_exited(plane)

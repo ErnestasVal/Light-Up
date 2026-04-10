@@ -1,7 +1,7 @@
 class_name SignalBase
 extends Node3D
 
-@export var activateObject : Node3D
+@export var activateObject : Array[Node3D]
 @export var inverted : bool = false
 @export var activation_time: float = 1.0
 @export var deactivation_time: float = 1.0
@@ -9,13 +9,14 @@ var _activation_tween: Tween = null
 var _deactivation_tween: Tween = null
 var momentary: bool = false
 
-var activated : bool
+var activated : bool = false
 signal activated_object
 signal deactivated_object
 
 func _ready() -> void:
-	if inverted && activateObject != null && activateObject.has_method("increment"):
-		activateObject.increment()
+	if inverted:
+		activated = true
+		incrementObjects()
 		
 func activate():
 	if _activation_tween:
@@ -49,19 +50,28 @@ func _do_activate():
 	_activation_tween = null
 	if activated != !inverted:
 		activated = !inverted
-		if !inverted && activateObject != null && activateObject.has_method("increment"):
-			activateObject.increment()
+		if !inverted:
+			incrementObjects()
 			
-		if inverted && activateObject != null && activateObject.has_method("decrement"):
-			activateObject.decrement()
+		if inverted:
+			decrementObjects()
 			
+func incrementObjects():
+	for i in len(activateObject):
+		if activateObject[i] != null && activateObject[i].has_method("increment"):
+			activateObject[i].increment()
 
+func decrementObjects():
+	for i in len(activateObject):
+		if activateObject[i] != null && activateObject[i].has_method("decrement"):
+			activateObject[i].decrement()
+			
 func _do_deactivate():
 	deactivated_object.emit()
 	if activated != inverted:
 		activated = inverted
-		if !inverted && activateObject != null && activateObject.has_method("decrement"):
-			activateObject.decrement()
-		if inverted && activateObject != null && activateObject.has_method("increment"):
-			activateObject.increment()
+		if !inverted:
+			decrementObjects()
+		if inverted:
+			incrementObjects()
 			

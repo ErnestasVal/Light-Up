@@ -1,0 +1,62 @@
+[gd_scene format=4 uid="uid://ti8bbs2v1d2r"]
+
+[ext_resource type="Texture2D" uid="uid://v1n5s3hufx0j" path="res://Assets/Models/BaseBlocks/Ramp_painted_metal_shutter_diff_1k.jpg" id="1_ee1ty"]
+[ext_resource type="Texture2D" uid="uid://c4elw55062646" path="res://Assets/Models/BaseBlocks/Ramp_painted_metal_shutter_rough_8k.png" id="2_7u5w2"]
+[ext_resource type="Texture2D" uid="uid://bogauv7ifomf4" path="res://Assets/Models/BaseBlocks/Ramp_painted_metal_shutter_nor_gl_8k.png" id="3_8ldgi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87um7"]
+resource_name = "Floor"
+cull_mode = 2
+albedo_texture = ExtResource("1_ee1ty")
+metallic_texture = ExtResource("2_7u5w2")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_7u5w2")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_8ldgi")
+uv1_scale = Vector3(8, 8, 1)
+uv1_offset = Vector3(0, -7, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7mbsb"]
+_surfaces = [{
+"aabb": AABB(-1, -0.19999993, -1, 2, 3.1999998, 4),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Floor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP8PAAAAAAAA/////wAAAAAAAAAAAAD///8PAAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kkw3f"]
+resource_name = "Ramp_Cube_006"
+_surfaces = [{
+"aabb": AABB(-1, -0.19999993, -1, 2, 3.1999998, 4),
+"attribute_data": PackedByteArray("/0//f/+f/4f/T////5//fwAAHmn/T8ZvAADGb/9PHmn/n/9//+////+f/4f/7/9//08AAP+f/3//T/9//58AAP/v/3//n/8v/+//L/+f/3//T8ZvAAD//wAAxm//T///"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_87um7"),
+"name": "Floor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP////8AAP8PAAD//wAA////////AAAAAAAA//8AAAAAAAD//////w8AAP//AAD/DwAA/////wAAAAD/////AAAAAP////////////////8PAAD/////AAD///////8AAP////8AAP//////////////////AAAAAP////8AAAAAAABU1f//AAD//1TV//8AAAAAVNUAAAAA//9U1f///w8AADfaAAD/////N9oAAP8PAAA32v///////zfa/z//f/8//3//P/9//z//f////3////9/////f////3//v/9//7//f/+//3//v/9//3//f/9//3//f/9//3//f1RVVFVUVVRVVVVUVVRVVFX///9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7mbsb")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ycrci"]
+points = PackedVector3Array(-1, -0.19999993, -1, 1, -0.19999993, -1, -1, -0.19999993, 3, -1, -0.0001565516, -1, 1, -0.0001565516, -1, 1, -0.19999993, 3, -1, 2.9996867, 3, 1, 2.9996867, 3)
+
+[node name="Ramp" type="MeshInstance3D" unique_id=2143089519]
+layers = 3
+mesh = SubResource("ArrayMesh_kkw3f")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=373537774]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=389828491]
+shape = SubResource("ConvexPolygonShape3D_ycrci")

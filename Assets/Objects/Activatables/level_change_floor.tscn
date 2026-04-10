@@ -1,0 +1,78 @@
+[gd_scene format=4 uid="uid://b7ybyt5oveooq"]
+
+[ext_resource type="Texture2D" uid="uid://u53bpkdky75q" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_diff_1k.jpg" id="1_fsi0p"]
+[ext_resource type="Texture2D" uid="uid://deyhkx1877ywj" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_rough_8k.png" id="2_malsu"]
+[ext_resource type="Texture2D" uid="uid://tmisfk2japql" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_nor_gl_8k.png" id="3_lugtm"]
+[ext_resource type="Script" uid="uid://bgnekns0ukqcp" path="res://Scripts/Activatables/level_change_floor.gd" id="4_malsu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cssof"]
+resource_name = "Floor"
+cull_mode = 2
+albedo_texture = ExtResource("1_fsi0p")
+metallic_texture = ExtResource("2_malsu")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_malsu")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_lugtm")
+uv1_scale = Vector3(8, 8, 1)
+uv1_offset = Vector3(0, -7, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_syv6h"]
+_surfaces = [{
+"aabb": AABB(-1, -0.19999993, -1, 2, 0.19999993, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Floor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ru5im"]
+resource_name = "Floor_Cube_002"
+_surfaces = [{
+"aabb": AABB(-1, -0.19999993, -1, 2, 0.19999993, 2),
+"attribute_data": PackedByteArray("zIz/f/9/////f/9/zIz//8yMAAD/f/9//38AAMyM/3+Zmf9/zIz//8yM/3+Zmf//mZkAAMyM/3/MjAAAmZn/f/9//v8AAP9//3//fwAA////f/9/AAAAAP9/AAAAAP9/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_cssof"),
+"name": "Floor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAABU1f//AAD//1TV//8AAAAAVNUAAAAA//9U1f////8AAFTVAAD/////VNUAAP//AABU1f///////1TVVFWqqlRVqqpUVaqqVFWqqv8//7//P/+//z//v/8//7+qqlRVqqpUVaqqVFWqqlRV/3//f/9//3//f/9//3//f1VVVFVVVVRVVVVUVVVVVFVU1aoqVNWqKlTVqipU1aoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_syv6h")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dyuiv"]
+size = Vector3(2, 0.19999993, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fsi0p"]
+size = Vector3(1, 0.28, 1)
+
+[node name="LevelChangeFloor" type="MeshInstance3D" unique_id=1861211319]
+layers = 3
+mesh = SubResource("ArrayMesh_ru5im")
+script = ExtResource("4_malsu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2015464720]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=557094622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.099999964, 0)
+shape = SubResource("BoxShape3D_dyuiv")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=70175556]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=8755036]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06021747, 0)
+shape = SubResource("BoxShape3D_fsi0p")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

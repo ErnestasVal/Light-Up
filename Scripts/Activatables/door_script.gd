@@ -7,6 +7,7 @@ extends ActivatableBase
 func _ready() -> void:
 	door_mesh.visible = !inverted
 	door_collision.disabled = inverted
+	super()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -77,6 +77,8 @@ size = Vector3(1.1993427, 0.04, 1.1993427)
 
 [node name="FloorButton" type="StaticBody3D" unique_id=38670477]
 script = ExtResource("2_nlqwu")
+activation_time = 0.0
+deactivation_time = 0.0
 
 [node name="Area3D" type="Area3D" parent="." unique_id=373919552]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)

@@ -1,0 +1,190 @@
+[gd_scene format=4 uid="uid://bgprkheochaus"]
+
+[ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/player_character_scene.tscn" id="1_o1i3j"]
+[ext_resource type="PackedScene" uid="uid://b83yd1pe7b3p7" path="res://Assets/Objects/Blocks/floor.tscn" id="2_0bc5r"]
+[ext_resource type="PackedScene" uid="uid://dl656wpqmh8v7" path="res://Assets/Objects/Blocks/wall.tscn" id="3_la1e5"]
+[ext_resource type="Texture2D" uid="uid://u53bpkdky75q" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_diff_1k.jpg" id="3_rycrn"]
+[ext_resource type="Texture2D" uid="uid://deyhkx1877ywj" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_rough_8k.png" id="4_0u8a8"]
+[ext_resource type="PackedScene" uid="uid://cg2xaaebd3ivc" path="res://Assets/Objects/Blocks/door_frame.tscn" id="4_rycrn"]
+[ext_resource type="PackedScene" uid="uid://c3vqub7h5dxtw" path="res://Assets/Objects/Indicators/progress_panel.tscn" id="5_0u8a8"]
+[ext_resource type="Texture2D" uid="uid://tmisfk2japql" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_nor_gl_8k.png" id="5_b7gbx"]
+[ext_resource type="PackedScene" uid="uid://bavuikw7kqp7" path="res://Assets/Objects/Indicators/simple_indicator.tscn" id="6_b7gbx"]
+[ext_resource type="PackedScene" uid="uid://d4dmvixcovuwx" path="res://Assets/Objects/Lights/spotlight.tscn" id="8_6dhhq"]
+[ext_resource type="PackedScene" uid="uid://cb6yjx72gx8e5" path="res://Assets/Objects/Blocks/window.tscn" id="9_fmqkp"]
+[ext_resource type="PackedScene" uid="uid://d066chwqmbwmn" path="res://Assets/Objects/Lights/filter.tscn" id="9_hc260"]
+[ext_resource type="PackedScene" uid="uid://ti8bbs2v1d2r" path="res://Assets/Objects/Blocks/ramp.tscn" id="10_parsv"]
+[ext_resource type="PackedScene" uid="uid://1jwse6o4qcxl" path="res://Assets/Objects/Signals/push_button.tscn" id="11_tbxqe"]
+[ext_resource type="PackedScene" uid="uid://cnagge4k0sc3j" path="res://Assets/Objects/Signals/solar_panel.tscn" id="12_ctwck"]
+[ext_resource type="PackedScene" uid="uid://bsfedtk52fg8y" path="res://Assets/Objects/Signals/floor_button.tscn" id="13_y13qy"]
+[ext_resource type="PackedScene" uid="uid://ok5pliquxvqu" path="res://Assets/Objects/Blocks/ceiling_with_light.tscn" id="14_lkh1a"]
+[ext_resource type="PackedScene" uid="uid://kbflbqfugkss" path="res://Assets/Objects/Lights/static_light.tscn" id="15_kmdgk"]
+[ext_resource type="PackedScene" uid="uid://bbi03akaxyocj" path="res://Assets/Objects/Activatables/door.tscn" id="16_k2cbh"]
+[ext_resource type="PackedScene" uid="uid://c6teiik2qf4bs" path="res://Assets/Objects/Activatables/platform.tscn" id="20_0u8a8"]
+[ext_resource type="PackedScene" uid="uid://b7ybyt5oveooq" path="res://Assets/Objects/Activatables/level_change_floor.tscn" id="21_b7gbx"]
+[ext_resource type="PackedScene" uid="uid://do03wbc710dv2" path="res://Levels/level_1.tscn" id="22_fmqkp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxt7a"]
+resource_name = "Floor"
+cull_mode = 2
+albedo_texture = ExtResource("3_rycrn")
+metallic_texture = ExtResource("4_0u8a8")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("4_0u8a8")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("5_b7gbx")
+uv1_scale = Vector3(8, 8, 1)
+uv1_offset = Vector3(0, -7, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7m1gy"]
+_surfaces = [{
+"aabb": AABB(-1, -0.19999993, -1, 2, 0.19999993, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Floor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_acwi2"]
+resource_name = "Floor_Cube_002"
+_surfaces = [{
+"aabb": AABB(-1, -0.19999993, -1, 2, 0.19999993, 2),
+"attribute_data": PackedByteArray("zIz/f/9/////f/9/zIz//8yMAAD/f/9//38AAMyM/3+Zmf9/zIz//8yM/3+Zmf//mZkAAMyM/3/MjAAAmZn/f/9//v8AAP9//3//fwAA////f/9/AAAAAP9/AAAAAP9/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_sxt7a"),
+"name": "Floor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAABU1f//AAD//1TV//8AAAAAVNUAAAAA//9U1f////8AAFTVAAD/////VNUAAP//AABU1f///////1TVVFWqqlRVqqpUVaqqVFWqqv8//7//P/+//z//v/8//7+qqlRVqqpUVaqqVFWqqlRV/3//f/9//3//f/9//3//f1VVVFVVVVRVVVVUVVVVVFVU1aoqVNWqKlTVqipU1aoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7m1gy")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fmqkp"]
+viewport_path = NodePath("../ProgressPanel2/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6dhhq"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hc260"]
+resource_local_to_scene = true
+resource_name = "DoorSeeThrough"
+transparency = 4
+cull_mode = 2
+albedo_color = Color(0.4821648, 0.70091337, 0.9062963, 0.15)
+roughness = 0.5
+
+[node name="DebugLevel" type="Node3D" unique_id=1710965241]
+
+[node name="PlayerCharacter" parent="." unique_id=307017552 instance=ExtResource("1_o1i3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 0)
+jump_time_to_fall = 0.4
+nb_jumps_in_air_allowed = 0
+
+[node name="Level" type="Node" parent="." unique_id=827467859]
+
+[node name="Geometry" type="Node" parent="Level" unique_id=1552493183]
+
+[node name="Window" parent="Level/Geometry" unique_id=501648517 instance=ExtResource("9_fmqkp")]
+transform = Transform3D(-0.9999998, 0, -2.6226832e-07, 0, 1, 0, 8.742276e-08, 0, -3, 0, 0, 12)
+
+[node name="Floor" parent="Level/Geometry" unique_id=1861211319 instance=ExtResource("2_0bc5r")]
+transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 40, 0, 0, 0)
+mesh = SubResource("ArrayMesh_acwi2")
+
+[node name="Wall" parent="Level/Geometry" unique_id=572881873 instance=ExtResource("3_la1e5")]
+transform = Transform3D(-0.9999997, 0, -4.5298742e-07, 0, 1, 0, 1.5099576e-07, 0, -3, 0, 0, 0)
+
+[node name="DoorFrame" parent="Level/Geometry" unique_id=362036900 instance=ExtResource("4_rycrn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -4)
+
+[node name="Wall2" parent="Level/Geometry" unique_id=1378710991 instance=ExtResource("3_la1e5")]
+transform = Transform3D(-0.9999997, 0, -4.5298742e-07, 0, 1, 0, 1.5099576e-07, 0, -3, 0, 0, 6)
+
+[node name="Ramp2" parent="Level/Geometry" unique_id=2143089519 instance=ExtResource("10_parsv")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6, 0, -2)
+
+[node name="Ramp" parent="Level/Geometry" unique_id=1488530427 instance=ExtResource("10_parsv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 0, -2)
+
+[node name="Indicators" type="Node" parent="Level" unique_id=1375547394]
+
+[node name="ProgressPanel" parent="Level/Indicators" unique_id=1599876708 node_paths=PackedStringArray("signal_object") instance=ExtResource("5_0u8a8")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -0.99119186, 1, 1.0059747)
+texture = SubResource("ViewportTexture_fmqkp")
+signal_object = NodePath("../../Signals/SolarPanel")
+
+[node name="ProgressPanel2" parent="Level/Indicators" unique_id=740939824 node_paths=PackedStringArray("signal_object") instance=ExtResource("5_0u8a8")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -0.98161507, 2, 3)
+texture = SubResource("ViewportTexture_6dhhq")
+signal_object = NodePath("../../Signals/PushButton")
+
+[node name="SimpleIndicator2" parent="Level/Indicators" unique_id=2035532517 node_paths=PackedStringArray("signal_object") instance=ExtResource("6_b7gbx")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -0.98810416, 1, 5)
+signal_object = NodePath("../../Signals/PushButton")
+
+[node name="SimpleIndicator" parent="Level/Indicators" unique_id=170117660 node_paths=PackedStringArray("signal_object") instance=ExtResource("6_b7gbx")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -0.9934699, 2, 5)
+signal_object = NodePath("../../Signals/Floor_Button")
+
+[node name="Spots" type="Node" parent="Level" unique_id=909863356]
+
+[node name="Spotlight2" parent="Level/Spots" unique_id=2084778349 instance=ExtResource("8_6dhhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 3)
+angle = 5.0
+range = 15.0
+
+[node name="Spotlight" parent="Level/Spots" unique_id=12900627 instance=ExtResource("8_6dhhq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
+
+[node name="Filter" parent="Level/Spots" unique_id=442854311 instance=ExtResource("9_hc260")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.160928, 0.4262514, 2.0028858)
+
+[node name="Signals" type="Node" parent="Level" unique_id=1941028693]
+
+[node name="PushButton2" parent="Level/Signals" unique_id=757546704 node_paths=PackedStringArray("activateObject") instance=ExtResource("11_tbxqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+activateObject = [NodePath("../../Activatable/Door"), NodePath("../../Activatable/StaticLight")]
+
+[node name="SolarPanel" parent="Level/Signals" unique_id=1585278521 node_paths=PackedStringArray("activateObject") instance=ExtResource("12_ctwck")]
+transform = Transform3D(-4.3711385e-08, 0.9999999, 0, -0.9999999, -4.3711385e-08, 0, 0, 0, 1, -0.9957082, 0.9044981, 0)
+activateObject = [NodePath("../../Activatable/StaticLight")]
+deactivation_time = 0.0
+
+[node name="Floor_Button" parent="Level/Signals" unique_id=942090966 node_paths=PackedStringArray("activateObject") instance=ExtResource("13_y13qy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29106903, 0, 6.296589)
+activateObject = [NodePath("../../Activatable/StaticLight")]
+
+[node name="PushButton" parent="Level/Signals" unique_id=1639143604 node_paths=PackedStringArray("activateObject") instance=ExtResource("11_tbxqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43801498, 2.9999995, 0.1668191)
+activateObject = [NodePath("../../Activatable/Platform")]
+
+[node name="CeilingWithLight" parent="Level/Signals" unique_id=727723125 instance=ExtResource("14_lkh1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("ArrayMesh_acwi2")
+
+[node name="Activatable" type="Node" parent="Level" unique_id=201937387]
+
+[node name="StaticLight" parent="Level/Activatable" unique_id=344302640 instance=ExtResource("15_kmdgk")]
+transform = Transform3D(-4.371139e-08, -0.70710677, -0.7071068, 0, 0.70710677, -0.7071068, 1, -3.090862e-08, -3.0908623e-08, 3, 3, 0)
+range = 10.0
+
+[node name="Door" parent="Level/Activatable" unique_id=466823853 instance=ExtResource("16_k2cbh")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -6)
+
+[node name="Platform" parent="Level/Activatable" unique_id=1344149028 instance=ExtResource("20_0u8a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3, -2)
+surface_material_override/0 = SubResource("StandardMaterial3D_hc260")
+inverted = true
+
+[node name="LevelChangeFloor" parent="." unique_id=1828349643 instance=ExtResource("21_b7gbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 2)
+next_level = ExtResource("22_fmqkp")

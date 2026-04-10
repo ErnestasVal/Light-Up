@@ -75,12 +75,13 @@ var target_offset := Vector3.ZERO
 const OFFSET_LERP_SPEED := 8.0
 var default_pickup_offset : Vector3
 # Tweak these to taste
-const NEAR_OFFSET_UP := Vector3(0, 1, 0)     # raise when near something
+const NEAR_OFFSET_UP := Vector3(0, .8, 0)     # raise when near something
 const NEAR_OFFSET_IN := Vector3(0, 0, 0.45)    # pull closer when near something
 var has_picked_up_object : bool = false
-var picked_up_object : RigidBody3D
+var picked_up_object : Node3D
 @export var wall_push_strength := 8.0
 @onready var proximity_cast: ShapeCast3D = $CameraHolder/PickUpPoint/ShapeCast3D
+@onready var ui : UI = %UI
 
 #references variables
 @onready var cam_holder: Node3D = %CameraHolder
@@ -147,9 +148,12 @@ func input_actions_check() -> void:
 func _physics_process(_delta: float) -> void:
 	modify_physics_properties()
 	if has_picked_up_object:
-		_update_hold_offset(_delta)
-		pick_up_point.position = default_pickup_offset + hold_offset
-		_apply_wall_pushback()
+		if picked_up_object.has_method("pickUp"):
+			_update_hold_offset(_delta)
+			pick_up_point.position = default_pickup_offset + hold_offset
+			_apply_wall_pushback()
+		else:
+			pick_up_point.position = default_pickup_offset + picked_up_object.hold_offset
 	move_and_slide()
 	
 func _update_hold_offset(delta: float) -> void:
@@ -180,8 +184,8 @@ func _apply_wall_pushback() -> void:
 			var hit_point: Vector3 = proximity_cast.get_collision_point(i)
 			var hold_point: Vector3 = pick_up_point.global_position
 			# If the hit is above the hold point, the object is clipping up into it
-			if hit_point.y > hold_point.y - 0.1 and hold_offset.y >= NEAR_OFFSET_UP.y / 2:
-				picked_up_object.handleActivate()
+			if hit_point.y > hold_point.y - 0.1:
+				picked_up_object.pickUp()
 				return
 			continue
 

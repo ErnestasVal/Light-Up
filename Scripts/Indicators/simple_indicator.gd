@@ -9,7 +9,15 @@ func _ready() -> void:
 	super()
 
 func _on_activated_object():
-	texture = on_image
+	super()
+	setImage()
 
 func _reset():
-	texture = off_image
+	super()
+	setImage()
+
+func setImage():
+	if isOn:
+		texture = on_image
+	else:
+		texture = off_image

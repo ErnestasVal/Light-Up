@@ -8,6 +8,7 @@ points = PackedVector3Array(-0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, 0
 
 [node name="SolarPanel" unique_id=1585278521 instance=ExtResource("1_20ib5")]
 script = ExtResource("2_rbqgi")
+deactivation_time = 0.0
 
 [node name="SolarActivationZone" type="Area3D" parent="." index="1" unique_id=574075324]
 collision_layer = 512

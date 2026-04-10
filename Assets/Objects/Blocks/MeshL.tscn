@@ -1,0 +1,122 @@
+[gd_scene format=4 uid="uid://qtpmgbdi70fh"]
+
+[ext_resource type="PackedScene" uid="uid://b83yd1pe7b3p7" path="res://Assets/Objects/Blocks/floor.tscn" id="1_lroci"]
+[ext_resource type="PackedScene" uid="uid://ok5pliquxvqu" path="res://Assets/Objects/Blocks/ceiling_with_light.tscn" id="2_00hth"]
+[ext_resource type="Texture2D" uid="uid://u53bpkdky75q" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_diff_1k.jpg" id="2_6hpbj"]
+[ext_resource type="PackedScene" uid="uid://cg2xaaebd3ivc" path="res://Assets/Objects/Blocks/door_frame.tscn" id="3_6hpbj"]
+[ext_resource type="Texture2D" uid="uid://deyhkx1877ywj" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_rough_8k.png" id="3_acwi2"]
+[ext_resource type="Texture2D" uid="uid://tmisfk2japql" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_nor_gl_8k.png" id="4_23l55"]
+[ext_resource type="PackedScene" uid="uid://ti8bbs2v1d2r" path="res://Assets/Objects/Blocks/ramp.tscn" id="4_acwi2"]
+[ext_resource type="PackedScene" uid="uid://dl656wpqmh8v7" path="res://Assets/Objects/Blocks/wall.tscn" id="5_23l55"]
+[ext_resource type="PackedScene" uid="uid://cb6yjx72gx8e5" path="res://Assets/Objects/Blocks/window.tscn" id="6_ibejd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cssof"]
+resource_name = "Floor"
+cull_mode = 2
+albedo_texture = ExtResource("2_6hpbj")
+metallic_texture = ExtResource("3_acwi2")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_acwi2")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_23l55")
+uv1_scale = Vector3(8, 8, 1)
+uv1_offset = Vector3(0, -7, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_syv6h"]
+_surfaces = [{
+"aabb": AABB(-1, -0.19999993, -1, 2, 0.19999993, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Floor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ru5im"]
+resource_name = "Floor_Cube_002"
+_surfaces = [{
+"aabb": AABB(-1, -0.19999993, -1, 2, 0.19999993, 2),
+"attribute_data": PackedByteArray("zIz/f/9/////f/9/zIz//8yMAAD/f/9//38AAMyM/3+Zmf9/zIz//8yM/3+Zmf//mZkAAMyM/3/MjAAAmZn/f/9//v8AAP9//3//fwAA////f/9/AAAAAP9/AAAAAP9/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_cssof"),
+"name": "Floor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAABU1f//AAD//1TV//8AAAAAVNUAAAAA//9U1f////8AAFTVAAD/////VNUAAP//AABU1f///////1TVVFWqqlRVqqpUVaqqVFWqqv8//7//P/+//z//v/8//7+qqlRVqqpUVaqqVFWqqlRV/3//f/9//3//f/9//3//f1VVVFVVVVRVVVVUVVVVVFVU1aoqVNWqKlTVqipU1aoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_syv6h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxt7a"]
+resource_name = "Floor"
+cull_mode = 2
+albedo_texture = ExtResource("2_6hpbj")
+metallic_texture = ExtResource("3_acwi2")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_acwi2")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_23l55")
+uv1_scale = Vector3(8, 8, 1)
+uv1_offset = Vector3(0, -7, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7m1gy"]
+_surfaces = [{
+"aabb": AABB(-1, -0.19999993, -1, 2, 0.19999993, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Floor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_acwi2"]
+resource_name = "Floor_Cube_002"
+_surfaces = [{
+"aabb": AABB(-1, -0.19999993, -1, 2, 0.19999993, 2),
+"attribute_data": PackedByteArray("zIz/f/9/////f/9/zIz//8yMAAD/f/9//38AAMyM/3+Zmf9/zIz//8yM/3+Zmf//mZkAAMyM/3/MjAAAmZn/f/9//v8AAP9//3//fwAA////f/9/AAAAAP9/AAAAAP9/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_sxt7a"),
+"name": "Floor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAABU1f//AAD//1TV//8AAAAAVNUAAAAA//9U1f////8AAFTVAAD/////VNUAAP//AABU1f///////1TVVFWqqlRVqqpUVaqqVFWqqv8//7//P/+//z//v/8//7+qqlRVqqpUVaqqVFWqqlRV/3//f/9//3//f/9//3//f1VVVFVVVVRVVVVUVVVVVFVU1aoqVNWqKlTVqipU1aoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7m1gy")
+
+[node name="Node3D" type="Node3D" unique_id=1757783988]
+
+[node name="Floor" parent="." unique_id=1861211319 instance=ExtResource("1_lroci")]
+mesh = SubResource("ArrayMesh_ru5im")
+
+[node name="CeilingWithLight" parent="." unique_id=168405990 instance=ExtResource("2_00hth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+mesh = SubResource("ArrayMesh_acwi2")
+
+[node name="DoorFrame" parent="." unique_id=362036900 instance=ExtResource("3_6hpbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Ramp" parent="." unique_id=2143089519 instance=ExtResource("4_acwi2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
+
+[node name="Wall" parent="." unique_id=572881873 instance=ExtResource("5_23l55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="Window" parent="." unique_id=501648517 instance=ExtResource("6_ibejd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)

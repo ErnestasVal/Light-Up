@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d3s8yxuvpmekm" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/StateMachine/player_character_script.gd" id="1_h128t"]
 [ext_resource type="Script" uid="uid://b0fbr48rbvn27" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/Camera/camera_script.gd" id="2_x12n0"]
+[ext_resource type="PackedScene" uid="uid://dfdyaci0m2g47" path="res://Assets/UI/UI.tscn" id="9_rxt4u"]
 [ext_resource type="StyleBox" uid="uid://c50syhy1a4dmh" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/UI/player_character_ui_theme.tres" id="11_kcsu1"]
 [ext_resource type="LabelSettings" uid="uid://d1rg1oruwidf" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/UI/label_font_setting.tres" id="12_gnmoh"]
 [ext_resource type="Script" uid="uid://dx02l6p6behb8" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/UI/hud_script.gd" id="16_5jm78"]
@@ -23,8 +24,12 @@ _data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(30, 30), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_81bua"]
+radius = 0.25
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5yjma"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_81bua"]
+radius = 0.75
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bkys"]
 albedo_color = Color(0.196078, 0.223529, 1, 1)
@@ -40,6 +45,7 @@ platform_floor_layers = 4278190081
 script = ExtResource("1_h128t")
 desired_move_speed_curve = SubResource("Curve_2tsxa")
 in_air_move_speed_curve = SubResource("Curve_br1r7")
+jump_height = 1.5
 
 [node name="StateMachine" type="Node" parent="." unique_id=931857651 node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
@@ -84,15 +90,14 @@ far = 1000.0
 
 [node name="CameraRay" type="RayCast3D" parent="CameraHolder/Camera" unique_id=692838892]
 unique_name_in_owner = true
-target_position = Vector3(0, 0, -10)
+target_position = Vector3(0, 0, -20)
 collision_mask = 2
 
 [node name="PickUpPoint" type="Node3D" parent="CameraHolder" unique_id=85623258]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -0.9, -1)
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="CameraHolder/PickUpPoint" unique_id=721772122]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.058)
 shape = SubResource("SphereShape3D_81bua")
 target_position = Vector3(0, 0, 0)
 
@@ -101,11 +106,11 @@ unique_name_in_owner = true
 shape = SubResource("CapsuleShape3D_5yjma")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=242162467]
-collision_layer = 3
+collision_layer = 19
 collision_mask = 3
 
 [node name="Hitbox" type="CollisionShape3D" parent="Area3D" unique_id=1071279854]
-shape = SubResource("CapsuleShape3D_5yjma")
+shape = SubResource("CylinderShape3D_81bua")
 
 [node name="Model" type="MeshInstance3D" parent="." unique_id=2093114359]
 unique_name_in_owner = true
@@ -130,27 +135,16 @@ debug_shape_custom_color = Color(0, 0, 0.956863, 1)
 
 [node name="PickUpPointRay" type="RayCast3D" parent="Raycasts" unique_id=386904563]
 unique_name_in_owner = true
-target_position = Vector3(0, -0.95, -1.5)
+target_position = Vector3(0.75, -0.35, -1)
+
+[node name="UI" parent="." unique_id=1881455452 instance=ExtResource("9_rxt4u")]
+unique_name_in_owner = true
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=382546849]
 unique_name_in_owner = true
+visible = false
 script = ExtResource("16_5jm78")
 metadata/_edit_use_anchors_ = true
-
-[node name="Crosshair" type="CenterContainer" parent="HUD" unique_id=1592966225]
-custom_minimum_size = Vector2(5, 5)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="HUD/Crosshair" unique_id=61035459]
-custom_minimum_size = Vector2(5, 5)
-layout_mode = 2
-mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=2004601024]
 offset_right = 248.0
