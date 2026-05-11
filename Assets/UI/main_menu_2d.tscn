@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://8rj0xg7l3801"]
+
+[ext_resource type="Script" uid="uid://bwnnuoos5dac5" path="res://Scripts/UI/main_menu.gd" id="1_vcuky"]
+[ext_resource type="Texture2D" uid="uid://rcbwtlnwont4" path="res://Assets/UI/MainMenu/Start Button.png" id="2_30d7t"]
+[ext_resource type="Texture2D" uid="uid://cgekf0omon17i" path="res://Assets/UI/MainMenu/LIGHT UP.png" id="2_votml"]
+[ext_resource type="Texture2D" uid="uid://dsqv76kau6dmn" path="res://Assets/UI/MainMenu/StartPressed.png" id="3_un88m"]
+[ext_resource type="Texture2D" uid="uid://b6wia34k5c6c4" path="res://Assets/UI/MainMenu/StartHover.png" id="4_l76nc"]
+[ext_resource type="Texture2D" uid="uid://cmf45apmx8ja7" path="res://Assets/UI/MainMenu/Level Select.png" id="5_ttf1f"]
+[ext_resource type="Texture2D" uid="uid://b0388bmfommsw" path="res://Assets/UI/MainMenu/SelectPressed.png" id="6_8wch1"]
+[ext_resource type="Texture2D" uid="uid://doigmtt7oqvdn" path="res://Assets/UI/MainMenu/SelectHover.png" id="7_vcuky"]
+[ext_resource type="Texture2D" uid="uid://v6wbl34oaejr" path="res://Assets/UI/MainMenu/Debug Level.png" id="8_f0owg"]
+[ext_resource type="Texture2D" uid="uid://ccou24g5qju8f" path="res://Assets/UI/MainMenu/DebugPressed.png" id="9_pulg3"]
+[ext_resource type="Texture2D" uid="uid://bj1bsccc5d5ju" path="res://Assets/UI/MainMenu/DebugHover.png" id="10_a7cha"]
+[ext_resource type="Texture2D" uid="uid://8c1glhhr1kdt" path="res://Assets/UI/MainMenu/Settings.png" id="11_8wch1"]
+[ext_resource type="Texture2D" uid="uid://c1vlsqer5ux82" path="res://Assets/UI/MainMenu/SettingPressed.png" id="11_clwfg"]
+[ext_resource type="Texture2D" uid="uid://feauk8ek86pa" path="res://Assets/UI/MainMenu/SettingsHover.png" id="12_al2rx"]
+[ext_resource type="Texture2D" uid="uid://csqls18geja5k" path="res://Assets/UI/MainMenu/Quit.png" id="13_dmpru"]
+[ext_resource type="Texture2D" uid="uid://bg3n83816r57r" path="res://Assets/UI/MainMenu/QuitPressed.png" id="14_lypd0"]
+[ext_resource type="Texture2D" uid="uid://25vcgpwmmbk7" path="res://Assets/UI/MainMenu/QuitHover.png" id="15_s0bo8"]
+
+[node name="MainMenu2D" type="Control" unique_id=1145908559]
+custom_minimum_size = Vector2(1125, 750)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vcuky")
+
+[node name="Logo" type="TextureRect" parent="." unique_id=17932154]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 79.0
+offset_right = 678.0
+offset_bottom = 165.0
+texture = ExtResource("2_votml")
+
+[node name="Start" type="TextureButton" parent="." unique_id=1968061028]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 192.0
+offset_right = 632.0
+offset_bottom = 267.0
+texture_normal = ExtResource("2_30d7t")
+texture_pressed = ExtResource("3_un88m")
+texture_hover = ExtResource("4_l76nc")
+
+[node name="LevelSelect" type="TextureButton" parent="." unique_id=1416244348]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 280.0
+offset_right = 632.0
+offset_bottom = 355.0
+texture_normal = ExtResource("5_ttf1f")
+texture_pressed = ExtResource("6_8wch1")
+texture_hover = ExtResource("7_vcuky")
+
+[node name="DebugLevel" type="TextureButton" parent="." unique_id=750499468]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 368.0
+offset_right = 632.0
+offset_bottom = 443.0
+texture_normal = ExtResource("8_f0owg")
+texture_pressed = ExtResource("9_pulg3")
+texture_hover = ExtResource("10_a7cha")
+
+[node name="Settings" type="TextureButton" parent="." unique_id=486144367]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 456.0
+offset_right = 632.0
+offset_bottom = 531.0
+texture_normal = ExtResource("11_8wch1")
+texture_pressed = ExtResource("11_clwfg")
+texture_hover = ExtResource("12_al2rx")
+
+[node name="Quit" type="TextureButton" parent="." unique_id=1300623126]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 544.0
+offset_right = 632.0
+offset_bottom = 619.0
+texture_normal = ExtResource("13_dmpru")
+texture_pressed = ExtResource("14_lypd0")
+texture_hover = ExtResource("15_s0bo8")
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="DebugLevel" to="." method="_on_debug_level_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

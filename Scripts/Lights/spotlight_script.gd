@@ -2,12 +2,17 @@ class_name Spotlight
 extends LightBase
 
 var isPickedUp : bool = false
+var cameraRay : RayCast3D
 
 @onready var spotlightLegs : GeometryInstance3D = %Leg
 @onready var player : PlayerCharacter = get_tree().get_first_node_in_group("PlayerCharacter")
-@onready var cameraRay : RayCast3D = player.cam_holder.camera_ray
 @onready var pickup_area : Area3D = %PickUpArea
 @onready var rigidbody : RigidBody3D = $"."
+
+func _ready() -> void:
+	if player != null:
+		cameraRay = player.cam_holder.camera_ray
+	super()
 
 func _process(delta: float) -> void:
 	checkInputs()

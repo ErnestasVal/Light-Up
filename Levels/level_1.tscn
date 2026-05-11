@@ -1,18 +1,67 @@
-[gd_scene format=3 uid="uid://do03wbc710dv2"]
+[gd_scene format=4 uid="uid://do03wbc710dv2"]
 
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/player_character_scene.tscn" id="1_dilhk"]
 [ext_resource type="PackedScene" uid="uid://b83yd1pe7b3p7" path="res://Assets/Objects/Blocks/floor.tscn" id="2_dilhk"]
+[ext_resource type="Texture2D" uid="uid://u53bpkdky75q" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_diff_1k.jpg" id="3_2hkqn"]
 [ext_resource type="PackedScene" uid="uid://dl656wpqmh8v7" path="res://Assets/Objects/Blocks/wall.tscn" id="3_rfktq"]
 [ext_resource type="PackedScene" uid="uid://d4dmvixcovuwx" path="res://Assets/Objects/Lights/spotlight.tscn" id="4_0urlm"]
+[ext_resource type="Texture2D" uid="uid://deyhkx1877ywj" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_rough_8k.png" id="4_34erp"]
 [ext_resource type="PackedScene" uid="uid://ok5pliquxvqu" path="res://Assets/Objects/Blocks/ceiling_with_light.tscn" id="4_77x7w"]
 [ext_resource type="PackedScene" uid="uid://c6teiik2qf4bs" path="res://Assets/Objects/Activatables/platform.tscn" id="5_77x7w"]
+[ext_resource type="Texture2D" uid="uid://tmisfk2japql" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_nor_gl_8k.png" id="5_k2bse"]
 [ext_resource type="PackedScene" uid="uid://bbi03akaxyocj" path="res://Assets/Objects/Activatables/door.tscn" id="6_xoyoh"]
 [ext_resource type="PackedScene" uid="uid://b7ybyt5oveooq" path="res://Assets/Objects/Activatables/level_change_floor.tscn" id="7_62b6n"]
 [ext_resource type="PackedScene" uid="uid://bsfedtk52fg8y" path="res://Assets/Objects/Signals/floor_button.tscn" id="7_xoyoh"]
 [ext_resource type="PackedScene" uid="uid://1jwse6o4qcxl" path="res://Assets/Objects/Signals/push_button.tscn" id="8_f4pg2"]
 [ext_resource type="PackedScene" uid="uid://brvqs62vta2e8" path="res://Levels/level_2.tscn" id="8_rs4xw"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62b6n"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cssof"]
+resource_name = "Floor"
+cull_mode = 2
+albedo_texture = ExtResource("3_2hkqn")
+metallic_texture = ExtResource("4_34erp")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("4_34erp")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("5_k2bse")
+uv1_scale = Vector3(8, 8, 1)
+uv1_offset = Vector3(0, -7, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_syv6h"]
+_surfaces = [{
+"aabb": AABB(-1, -0.19999993, -1, 2, 0.19999993, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Floor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c7pbv"]
+resource_local_to_scene = true
+resource_name = "Floor_Cube_002"
+_surfaces = [{
+"aabb": AABB(-1, -0.19999993, -1, 2, 0.19999993, 2),
+"attribute_data": PackedByteArray("zIz/f/9/////f/9/zIz//8yMAAD/f/9//38AAMyM/3+Zmf9/zIz//8yM/3+Zmf//mZkAAMyM/3/MjAAAmZn/f/9//v8AAP9//3//fwAA////f/9/AAAAAP9/AAAAAP9/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_cssof"),
+"name": "Floor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAABU1f//AAD//1TV//8AAAAAVNUAAAAA//9U1f////8AAFTVAAD/////VNUAAP//AABU1f///////1TVVFWqqlRVqqpUVaqqVFWqqv8//7//P/+//z//v/8//7+qqlRVqqpUVaqqVFWqqlRV/3//f/9//3//f/9//3//f1VVVFVVVVRVVVVUVVVVVFVU1aoqVNWqKlTVqipU1aoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_syv6h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77l7m"]
 resource_local_to_scene = true
 resource_name = "DoorSeeThrough"
 transparency = 4
@@ -31,7 +80,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Platform" parent="Level/Activatables" unique_id=117024441 instance=ExtResource("5_77x7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, 0)
-surface_material_override/0 = SubResource("StandardMaterial3D_62b6n")
+mesh = SubResource("ArrayMesh_c7pbv")
+surface_material_override/0 = SubResource("StandardMaterial3D_77l7m")
 inverted = true
 
 [node name="Door" parent="Level/Activatables" unique_id=466823853 instance=ExtResource("6_xoyoh")]
@@ -53,7 +103,6 @@ activateObject = [NodePath("../../Activatables/Platform")]
 
 [node name="Spotlight" parent="Level" unique_id=12900627 instance=ExtResource("4_0urlm")]
 transform = Transform3D(-0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660254, 6, 3, 0)
-can_sleep = false
 
 [node name="Geometry" type="Node3D" parent="Level" unique_id=769446268]
 

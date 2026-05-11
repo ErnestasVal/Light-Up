@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://d32x3fbw6ppo5"]
+
+[ext_resource type="PackedScene" uid="uid://b83yd1pe7b3p7" path="res://Assets/Objects/Blocks/floor.tscn" id="1_3es34"]
+[ext_resource type="Script" uid="uid://dkupep3rwv3i7" path="res://Scripts/UI/3d_main_menu.gd" id="1_5qvx8"]
+[ext_resource type="PackedScene" uid="uid://8rj0xg7l3801" path="res://Assets/UI/main_menu_2d.tscn" id="1_8md67"]
+[ext_resource type="PackedScene" uid="uid://dl656wpqmh8v7" path="res://Assets/Objects/Blocks/wall.tscn" id="2_8md67"]
+[ext_resource type="PackedScene" uid="uid://d4dmvixcovuwx" path="res://Assets/Objects/Lights/spotlight.tscn" id="3_3es34"]
+[ext_resource type="PackedScene" uid="uid://do03wbc710dv2" path="res://Levels/level_1.tscn" id="3_hllw6"]
+[ext_resource type="PackedScene" uid="uid://bgprkheochaus" path="res://Levels/Debug.tscn" id="4_qor8d"]
+[ext_resource type="PackedScene" uid="uid://dfdyaci0m2g47" path="res://Assets/UI/UI.tscn" id="5_15p6s"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8md67"]
+viewport_path = NodePath("StaticBody3D/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15p6s"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_8md67")
+metallic = 0.5
+metallic_specular = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3es34"]
+size = Vector2(4.5, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_15p6s"]
+size = Vector3(4.5, 0.001, 3)
+
+[node name="MainMenu" type="Node3D" unique_id=1329995980]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=410995354]
+script = ExtResource("1_5qvx8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1510659789]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.3, 1.5, -0.999)
+material_override = SubResource("StandardMaterial3D_15p6s")
+mesh = SubResource("PlaneMesh_3es34")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1487322567]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.3, 1.5, -0.999)
+shape = SubResource("BoxShape3D_15p6s")
+
+[node name="SubViewport" type="SubViewport" parent="StaticBody3D" unique_id=1977991398]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(1125, 750)
+
+[node name="MainMenu2D" parent="StaticBody3D/SubViewport" unique_id=1145908559 node_paths=PackedStringArray("overlay") instance=ExtResource("1_8md67")]
+overlay = NodePath("../../../UI")
+first_level = ExtResource("3_hllw6")
+debug_level = ExtResource("4_qor8d")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=407597410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+
+[node name="Spotlight" parent="." unique_id=12900627 instance=ExtResource("3_3es34")]
+transform = Transform3D(-0.8021196, 0, -0.59716326, 0, 1, 0, 0.59716326, 0, -0.8021196, 1.4, 6, 1)
+angle = 40.0
+range = 7.0
+energy = 7.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Spotlight" unique_id=1358310281]
+transform = Transform3D(-0.80211973, 0, 0.5971633, 0, 1, 0, -0.5971633, 0, -0.80211973, 0.5389228, 1, -0.22170031)
+light_energy = 0.75
+omni_range = 1.0
+
+[node name="Geometry" type="Node" parent="." unique_id=890192174]
+
+[node name="Floor" parent="Geometry" unique_id=1861211319 instance=ExtResource("1_3es34")]
+
+[node name="Floor2" parent="Geometry" unique_id=838090781 instance=ExtResource("1_3es34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="Floor3" parent="Geometry" unique_id=799033664 instance=ExtResource("1_3es34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="Wall" parent="Geometry" unique_id=572881873 instance=ExtResource("2_8md67")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Wall2" parent="Geometry" unique_id=1492738223 instance=ExtResource("2_8md67")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, 0)
+
+[node name="Wall3" parent="Geometry" unique_id=1957486459 instance=ExtResource("2_8md67")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
+
+[node name="Floor4" parent="Geometry" unique_id=1145465649 instance=ExtResource("1_3es34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Floor5" parent="Geometry" unique_id=558385469 instance=ExtResource("1_3es34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Floor6" parent="Geometry" unique_id=784310984 instance=ExtResource("1_3es34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+
+[node name="Wall4" parent="Geometry" unique_id=553070886 instance=ExtResource("2_8md67")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 3, 0)
+
+[node name="Wall5" parent="Geometry" unique_id=861986739 instance=ExtResource("2_8md67")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 0, 0)
+
+[node name="Floor7" parent="Geometry" unique_id=893604262 instance=ExtResource("1_3es34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Wall6" parent="Geometry" unique_id=1538316705 instance=ExtResource("2_8md67")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 3, 0)
+
+[node name="Wall7" parent="Geometry" unique_id=2040967984 instance=ExtResource("2_8md67")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 0, 0)
+
+[node name="Wall8" parent="Geometry" unique_id=1485689623 instance=ExtResource("2_8md67")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 3, 0)
+
+[node name="Floor8" parent="Geometry" unique_id=1460362893 instance=ExtResource("1_3es34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="Wall9" parent="Geometry" unique_id=1722158867 instance=ExtResource("2_8md67")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 3, 0)
+
+[node name="Wall10" parent="Geometry" unique_id=1802663078 instance=ExtResource("2_8md67")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 3, 0)
+
+[node name="UI" parent="." unique_id=1881455452 instance=ExtResource("5_15p6s")]
+
+[connection signal="input_event" from="StaticBody3D" to="StaticBody3D" method="_on_input_event"]
