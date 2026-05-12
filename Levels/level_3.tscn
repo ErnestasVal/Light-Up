@@ -71,13 +71,11 @@ signal_object = NodePath("../../SolarPanel3")
 
 [node name="Spotlight" parent="Level" unique_id=12900627 instance=ExtResource("8_1yi2b")]
 transform = Transform3D(-0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660254, 6, 0, 0)
-can_sleep = false
 angle = 2.0
-range = 10.0
+range = 15.0
 
 [node name="Spotlight2" parent="Level" unique_id=1660129380 instance=ExtResource("8_1yi2b")]
 transform = Transform3D(-0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660254, 2, 0, -8)
-can_sleep = false
 range = 10.0
 
 [node name="Geometry" type="Node3D" parent="." unique_id=1863768084]

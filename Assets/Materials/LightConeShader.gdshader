@@ -17,6 +17,10 @@ uniform float opacity : hint_range(0.0, 1.0) = 0.35;
 // Controls how dusty/dense the centre of the beam looks
 uniform float beam_density : hint_range(0.5, 8.0) = 2.0;
 
+// Beam clipping depth from script (0=tip, 1=full length)
+uniform float wall_clip_t : hint_range(0.0, 1.0) = 1.0;
+uniform float wall_clip_softness : hint_range(0.0, 0.2) = 0.02;
+
 // ─── Noise / flicker ───────────────────────────────────────────────────────
 uniform sampler2D noise_texture : hint_default_white;
 uniform float noise_strength : hint_range(0.0, 1.0) = 0.18;
@@ -40,6 +44,10 @@ void fragment() {
 
     float y        = v_obj_pos.y;              // 0 at tip, negative going to base
     float t        = clamp(-y, 0.0, 1.0);     // 0=tip ... 1=base  (assumes height = 1)
+
+    if (t > wall_clip_t) {
+        discard;
+    }
 
     // Radial distance from cone axis in object space, normalised by the
     // expected radius at this slice (radius grows linearly with depth)
@@ -65,7 +73,8 @@ void fragment() {
     float shimmer = 1.0 + (noise - 0.5) * 2.0 * noise_strength;
 
     // ── Combine ────────────────────────────────────────────────────────────
-    float intensity = axial * radial * edge_fade * shimmer;
+    float wall_fade = 1.0 - smoothstep(max(0.0, wall_clip_t - wall_clip_softness), wall_clip_t, t);
+    float intensity = axial * radial * edge_fade * shimmer * wall_fade;
     float alpha     = clamp(intensity * opacity, 0.0, 1.0);
 
     ALBEDO = beam_color.rgb;

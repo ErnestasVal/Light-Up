@@ -2,7 +2,9 @@ class_name Spotlight
 extends LightBase
 
 var isPickedUp : bool = false
+var isFalling : bool = false
 var cameraRay : RayCast3D
+var lastCollisionPoint : Vector3 = Vector3.INF
 
 @onready var spotlightLegs : GeometryInstance3D = %Leg
 @onready var player : PlayerCharacter = get_tree().get_first_node_in_group("PlayerCharacter")
@@ -21,14 +23,24 @@ func _process(delta: float) -> void:
 
 		if cameraRay.is_colliding():
 			rotation_degrees.y = player.cam_holder.global_rotation_degrees.y - 180
-			lightHead.look_at(cameraRay.get_collision_point())
+			lastCollisionPoint = cameraRay.get_collision_point()
+			lightHead.look_at(lastCollisionPoint)
 			lightHead.rotation.x = -lightHead.rotation.x
 			lightHead.rotation_degrees.y = lightHead.rotation_degrees.y - 180
 		else:
 			lightHead.rotation.x = -player.cam.global_rotation.x
 			lightHead.rotation_degrees.y = 0
 			rotation_degrees.y = player.cam_holder.global_rotation_degrees.y - 180
+			lastCollisionPoint = Vector3.INF
 		spotlightLegs.rotation.y = lightHead.rotation.y
+	else:
+		if lastCollisionPoint != Vector3.INF and isFalling:
+			lightHead.look_at(lastCollisionPoint)
+			lightHead.rotation.x = -lightHead.rotation.x
+			lightHead.rotation_degrees.y = lightHead.rotation_degrees.y - 180
+			if rigidbody.linear_velocity.is_zero_approx():
+				lastCollisionPoint = Vector3.INF
+				isFalling = false
 
 func checkInputs() -> void:
 	if Input.is_action_just_pressed("activate_object"):
@@ -60,6 +72,7 @@ func _is_closest_activatable() -> bool:
 func pickUp() -> void:
 	isPickedUp = !isPickedUp
 	if isPickedUp:
+		isFalling = false
 		player.picked_up_object = self
 		rigidbody.freeze = true  # Freeze instead of layer-toggle while held
 		rigidbody.set_collision_layer_value(1, false)
@@ -78,5 +91,6 @@ func pickUp() -> void:
 		
 		# Wake the physics body explicitly
 		rigidbody.sleeping = false
+		isFalling = true
 
 	player.has_picked_up_object = isPickedUp

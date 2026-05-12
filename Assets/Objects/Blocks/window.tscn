@@ -74,7 +74,7 @@ size = Vector3(0.35000002, 3, 2.00002)
 [node name="Window" type="MeshInstance3D" unique_id=501648517]
 mesh = SubResource("ArrayMesh_ef76i")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=203684882]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=203684882 groups=["light_transparent"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0999999, 1.4999995, 3.33786e-06)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=193030350]
