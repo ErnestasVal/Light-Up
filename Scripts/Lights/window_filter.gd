@@ -4,6 +4,7 @@ extends Node3D
 @export var sample_columns: int = 3
 @export var sample_rows: int = 4
 @export var window_color: Color = Color(0.4821648, 0.70091337, 0.9062963, 0.15)
+@export var tint_light: bool = false
 
 @onready var window_mesh: MeshInstance3D = $"."
 @onready var window_body: StaticBody3D = $StaticBody3D

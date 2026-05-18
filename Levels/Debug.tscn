@@ -198,6 +198,7 @@ transform = Transform3D(-0.9999998, 0, -2.6226832e-07, 0, 1, 0, 8.742276e-08, 0,
 sample_columns = 10
 sample_rows = 10
 window_color = Color(0.9850026, 0.52367616, 0.5084743, 0.14901961)
+tint_light = true
 
 [node name="Floor" parent="Level/Geometry" unique_id=1861211319 instance=ExtResource("2_0bc5r")]
 transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 40, 0, 0, 0)
