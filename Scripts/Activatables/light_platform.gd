@@ -6,10 +6,16 @@ extends Node3D
 @export var maximum_hit_radius_factor: float = 0.5
 @export var cell_size: float = 0.25
 @export var inverted: bool = true
+@export var color_sensitive: bool = false
+@export var sensitive_color: Color = Color(1, 1, 1)
+@export var color_tolerance: float = 0.12
+@export var transparency: float = 0.25
 
 @onready var mesh: MeshInstance3D = $"."
 @onready var collision_body: StaticBody3D = $StaticBody3D
 @onready var base_collision: CollisionShape3D = $StaticBody3D/CollisionShape3D
+var platform_material: StandardMaterial3D
+var default_platform_color: Color
 
 var platform_aabb: AABB
 var surface_y: float = 0.0
@@ -20,6 +26,14 @@ var platform_cells: Array[CollisionShape3D] = []
 func _ready() -> void:
 	platform_aabb = mesh.get_aabb()
 	surface_y = platform_aabb.end.y
+	platform_material = _ensure_platform_material()
+	if platform_material != null:
+		default_platform_color = platform_material.albedo_color
+		# If color sensitive, set the platform color once on load and do not change it at runtime
+		if color_sensitive:
+			var inv_load: Color = invert_color_hue(sensitive_color)
+			inv_load.a = transparency
+			platform_material.albedo_color = inv_load
 	if inverted:
 		base_collision.disabled = true
 		_build_platform_cells()
@@ -35,13 +49,19 @@ func _physics_process(_delta: float) -> void:
 		if not (light_source is LightBase):
 			continue
 
-		var cone := (light_source as LightBase).lightCone
+		var light_base := light_source as LightBase
+		if color_sensitive and not _color_matches(light_base.lightColor):
+			continue
+
+		var cone := light_base.lightCone
 		if cone == null or not is_instance_valid(cone):
 			continue
 
 		seen_cones[cone] = true
 		if not inverted:
 			_sync_cone_collision(cone)
+
+	# (Color is set once on load when `color_sensitive` is enabled.)
 
 	if inverted:
 		_update_inverted_collision(seen_cones.keys())
@@ -185,3 +205,110 @@ func _remove_cone_collision(cone: Node) -> void:
 	cone_collisions.erase(cone)
 	if is_instance_valid(collision):
 		collision.queue_free()
+
+
+func _ensure_platform_material() -> StandardMaterial3D:
+	var idx: int = 0
+	var override_material := mesh.get_surface_override_material(idx) as StandardMaterial3D
+	if override_material != null:
+		return override_material
+
+	if mesh.mesh == null or mesh.mesh.get_surface_count() == 0:
+		return null
+
+	var source_material := mesh.mesh.surface_get_material(idx) as StandardMaterial3D
+	if source_material == null:
+		source_material = StandardMaterial3D.new()
+	else:
+		source_material = source_material.duplicate() as StandardMaterial3D
+
+	mesh.set_surface_override_material(idx, source_material)
+	return source_material
+
+
+func _color_matches(light_color: Color) -> bool:
+	# Use hue-based matching when possible; fallback to RGB distance for low saturation
+	var lc_hsv: Vector3 = rgb_to_hsv(light_color)
+	var sc_hsv: Vector3 = rgb_to_hsv(sensitive_color)
+	var hue_tol: float = max(0.0, color_tolerance)
+
+	# If either color is nearly desaturated, RGB distance is more reliable
+	if lc_hsv.y < 0.05 or sc_hsv.y < 0.05:
+		var dr: float = light_color.r - sensitive_color.r
+		var dg: float = light_color.g - sensitive_color.g
+		var db: float = light_color.b - sensitive_color.b
+		var diff_len: float = Vector3(dr, dg, db).length()
+		return diff_len <= hue_tol
+
+	return hue_distance(lc_hsv.x, sc_hsv.x) <= hue_tol
+
+
+func invert_color_hue(c: Color) -> Color:
+	var hsv: Vector3 = rgb_to_hsv(c)
+	hsv.x = fposmod(hsv.x + 0.5, 1.0)
+	var out: Color = hsv_to_rgb(hsv.x, hsv.y, hsv.z)
+	out.a = c.a
+	return out
+
+
+func rgb_to_hsv(c: Color) -> Vector3:
+	var r: float = c.r
+	var g: float = c.g
+	var b: float = c.b
+	var maxv: float = max(r, max(g, b))
+	var minv: float = min(r, min(g, b))
+	var v: float = maxv
+	var d: float = maxv - minv
+	var s: float = 0.0
+	if maxv > 0.0:
+		s = d / maxv
+
+	var h: float = 0.0
+	if d > 0.0:
+		if maxv == r:
+			h = (g - b) / d
+			h = fposmod(h, 6.0)
+		elif maxv == g:
+			h = (b - r) / d + 2.0
+		else:
+			h = (r - g) / d + 4.0
+		h = h / 6.0
+		if h < 0.0:
+			h += 1.0
+
+	return Vector3(h, s, v)
+
+
+func hsv_to_rgb(h: float, s: float, v: float) -> Color:
+	if s <= 0.0:
+		return Color(v, v, v)
+
+	var hh: float = fposmod(h, 1.0) * 6.0
+	var i: int = int(floor(hh))
+	var f: float = hh - float(i)
+	var p: float = v * (1.0 - s)
+	var q: float = v * (1.0 - s * f)
+	var t: float = v * (1.0 - s * (1.0 - f))
+
+	match i % 6:
+		0:
+			return Color(v, t, p)
+		1:
+			return Color(q, v, p)
+		2:
+			return Color(p, v, t)
+		3:
+			return Color(p, q, v)
+		4:
+			return Color(t, p, v)
+		5:
+			return Color(v, p, q)
+
+	return Color(0, 0, 0)
+
+
+func hue_distance(h1: float, h2: float) -> float:
+	var d: float = abs(h1 - h2)
+	if d > 0.5:
+		d = 1.0 - d
+	return d

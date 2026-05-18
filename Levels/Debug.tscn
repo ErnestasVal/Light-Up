@@ -297,3 +297,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -4)
 mesh = SubResource("ArrayMesh_tbxqe")
 surface_material_override/0 = SubResource("StandardMaterial3D_ctwck")
+inverted = false
+color_sensitive = true
+sensitive_color = Color(0, 0, 1, 1)
