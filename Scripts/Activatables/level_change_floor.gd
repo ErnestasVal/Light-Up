@@ -9,7 +9,7 @@ func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _do_change_level():
@@ -18,7 +18,7 @@ func _do_change_level():
 	else:
 		get_tree().reload_current_scene()
 
-func _on_area_3d_area_entered(area: Area3D) -> void:
+func _on_area_3d_area_entered(_area: Area3D) -> void:
 	_level_change_tween = create_tween()
 	_level_change_tween.tween_interval(0.5)
 	_level_change_tween.tween_callback(_do_change_level)

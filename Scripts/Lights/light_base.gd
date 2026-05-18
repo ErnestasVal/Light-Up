@@ -12,6 +12,7 @@ var default_light_color : Color
 @onready var lightHead : MeshInstance3D = %LightHead
 
 func _ready() -> void:
+	add_to_group("light_sources")
 	setLightValues()
 	default_light_color = lightColor
 
