@@ -143,6 +143,7 @@ light_energy = 2.0
 shadow_enabled = true
 spot_attenuation = 0.0
 spot_angle = 15.0
+spot_angle_attenuation = 0.3660214
 
 [node name="LightCone" parent="LightHead" unique_id=842653397 instance=ExtResource("3_4v2hc")]
 unique_name_in_owner = true

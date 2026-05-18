@@ -119,5 +119,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 3
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 3, 0)
 
 [node name="UI" parent="." unique_id=1881455452 instance=ExtResource("5_15p6s")]
+hudOn = false
 
 [connection signal="input_event" from="StaticBody3D" to="StaticBody3D" method="_on_input_event"]

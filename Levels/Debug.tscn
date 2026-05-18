@@ -74,14 +74,6 @@ viewport_path = NodePath("../ProgressPanel2/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_6dhhq"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbxqe"]
-resource_local_to_scene = true
-resource_name = "DoorSeeThrough"
-transparency = 4
-cull_mode = 2
-albedo_color = Color(0.4821648, 0.70091337, 0.9062963, 0.15)
-roughness = 0.5
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cssof"]
 resource_name = "Floor"
 cull_mode = 2
@@ -136,6 +128,60 @@ cull_mode = 2
 albedo_color = Color(0.4821648, 0.70091337, 0.9062963, 0.15)
 roughness = 0.5
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbxqe"]
+resource_name = "Floor"
+cull_mode = 2
+albedo_texture = ExtResource("3_rycrn")
+metallic_texture = ExtResource("4_0u8a8")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("4_0u8a8")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("5_b7gbx")
+uv1_scale = Vector3(8, 8, 1)
+uv1_offset = Vector3(0, -7, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ctwck"]
+_surfaces = [{
+"aabb": AABB(-1, -0.19999993, -1, 2, 0.19999993, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Floor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tbxqe"]
+resource_local_to_scene = true
+resource_name = "Floor_Cube_002"
+_surfaces = [{
+"aabb": AABB(-1, -0.19999993, -1, 2, 0.19999993, 2),
+"attribute_data": PackedByteArray("zIz/f/9/////f/9/zIz//8yMAAD/f/9//38AAMyM/3+Zmf9/zIz//8yM/3+Zmf//mZkAAMyM/3/MjAAAmZn/f/9//v8AAP9//3//fwAA////f/9/AAAAAP9/AAAAAP9/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_tbxqe"),
+"name": "Floor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAABU1f//AAD//1TV//8AAAAAVNUAAAAA//9U1f////8AAFTVAAD/////VNUAAP//AABU1f///////1TVVFWqqlRVqqpUVaqqVFWqqv8//7//P/+//z//v/8//7+qqlRVqqpUVaqqVFWqqlRV/3//f/9//3//f/9//3//f1VVVFVVVVRVVVVUVVVVVFVU1aoqVNWqKlTVqipU1aoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ctwck")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ctwck"]
+resource_local_to_scene = true
+resource_name = "DoorSeeThrough"
+transparency = 4
+cull_mode = 2
+albedo_color = Color(0.4821648, 0.70091337, 0.9062963, 0.15)
+roughness = 0.5
+
 [node name="DebugLevel" type="Node3D" unique_id=1710965241]
 
 [node name="PlayerCharacter" parent="." unique_id=307017552 instance=ExtResource("1_o1i3j")]
@@ -149,6 +195,9 @@ nb_jumps_in_air_allowed = 0
 
 [node name="Window" parent="Level/Geometry" unique_id=501648517 instance=ExtResource("9_fmqkp")]
 transform = Transform3D(-0.9999998, 0, -2.6226832e-07, 0, 1, 0, 8.742276e-08, 0, -3, 0, 0, 12)
+sample_columns = 10
+sample_rows = 10
+window_color = Color(0.9850026, 0.52367616, 0.5084743, 0.14901961)
 
 [node name="Floor" parent="Level/Geometry" unique_id=1861211319 instance=ExtResource("2_0bc5r")]
 transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 40, 0, 0, 0)
@@ -227,11 +276,6 @@ mesh = SubResource("ArrayMesh_acwi2")
 
 [node name="Activatable" type="Node" parent="Level" unique_id=201937387]
 
-[node name="LightPlatform" parent="Level/Activatable" unique_id=1359644853 instance=ExtResource("22_fmqkp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -4)
-surface_material_override/0 = SubResource("StandardMaterial3D_tbxqe")
-inverted = false
-
 [node name="StaticLight" parent="Level/Activatable" unique_id=344302640 instance=ExtResource("15_kmdgk")]
 transform = Transform3D(-4.371139e-08, -0.70710677, -0.7071068, 0, 0.70710677, -0.7071068, 1, -3.090862e-08, -3.0908623e-08, 3, 3, 0)
 range = 10.0
@@ -247,3 +291,8 @@ inverted = true
 
 [node name="LevelChangeFloor" parent="." unique_id=1828349643 instance=ExtResource("21_b7gbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 2)
+
+[node name="LightPlatform" parent="." unique_id=1921207875 instance=ExtResource("22_fmqkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -4)
+mesh = SubResource("ArrayMesh_tbxqe")
+surface_material_override/0 = SubResource("StandardMaterial3D_ctwck")

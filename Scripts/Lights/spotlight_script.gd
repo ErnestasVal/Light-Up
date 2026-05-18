@@ -16,13 +16,12 @@ func _ready() -> void:
 		cameraRay = player.cam_holder.camera_ray
 	super()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	checkInputs()
 	if isPickedUp:
 		global_position = player.pick_up_point.global_position
 
 		if cameraRay.is_colliding():
-			rotation_degrees.y = player.cam_holder.global_rotation_degrees.y - 180
 			lastCollisionPoint = cameraRay.get_collision_point()
 			lightHead.look_at(lastCollisionPoint)
 			lightHead.rotation.x = -lightHead.rotation.x

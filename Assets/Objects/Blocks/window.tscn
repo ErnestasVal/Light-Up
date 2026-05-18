@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://cb6yjx72gx8e5"]
 
+[ext_resource type="Script" path="res://Scripts/Lights/window_filter.gd" id="1_hl9xk"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udpr8"]
 resource_name = "DoorSeeThrough.002"
 transparency = 4
@@ -73,6 +75,7 @@ size = Vector3(0.35000002, 3, 2.00002)
 
 [node name="Window" type="MeshInstance3D" unique_id=501648517]
 mesh = SubResource("ArrayMesh_ef76i")
+script = ExtResource("1_hl9xk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=203684882 groups=["light_transparent"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0999999, 1.4999995, 3.33786e-06)
