@@ -27,8 +27,9 @@ func _process(_delta: float) -> void:
 			lightHead.rotation.x = -lightHead.rotation.x
 			lightHead.rotation_degrees.y = lightHead.rotation_degrees.y - 180
 		else:
-			lightHead.rotation.x = -player.cam.global_rotation.x
-			lightHead.rotation_degrees.y = 0
+			lightHead.look_at(cameraRay.to_global(cameraRay.target_position))
+			lightHead.rotation.x = -lightHead.rotation.x
+			lightHead.rotation_degrees.y = lightHead.rotation_degrees.y - 180
 			rotation_degrees.y = player.cam_holder.global_rotation_degrees.y - 180
 			lastCollisionPoint = Vector3.INF
 		spotlightLegs.rotation.y = lightHead.rotation.y
