@@ -1,6 +1,21 @@
 [gd_scene format=3 uid="uid://dfdyaci0m2g47"]
 
 [ext_resource type="Script" uid="uid://cpvr0tnjx2aqp" path="res://Assets/UI/ui.gd" id="1_0dueh"]
+[ext_resource type="Texture2D" uid="uid://bj6xjtnw3golh" path="res://Assets/UI/Pictures/crosshair.png" id="2_706bw"]
+[ext_resource type="PackedScene" uid="uid://d32x3fbw6ppo5" path="res://Levels/main_menu.tscn" id="2_mbk43"]
+[ext_resource type="Texture2D" uid="uid://c4tyw0fb4fy2c" path="res://Assets/UI/PauseMenu/Paused.png" id="3_5x44o"]
+[ext_resource type="Texture2D" uid="uid://daa8ed2pblyx" path="res://Assets/UI/PauseMenu/Resume.png" id="4_dwebp"]
+[ext_resource type="Texture2D" uid="uid://c6qv7otbnetni" path="res://Assets/UI/PauseMenu/ResumePressed.png" id="5_61j8b"]
+[ext_resource type="Texture2D" uid="uid://bh1ojr6vdk065" path="res://Assets/UI/PauseMenu/ResumeHover.png" id="6_k0geq"]
+[ext_resource type="Texture2D" uid="uid://dnytyua6d32hl" path="res://Assets/UI/PauseMenu/Restart.png" id="7_rqvxo"]
+[ext_resource type="Texture2D" uid="uid://86jkfwnqx8if" path="res://Assets/UI/PauseMenu/RestartPressed.png" id="8_mbk43"]
+[ext_resource type="Texture2D" uid="uid://cfdxjsvk8jxv" path="res://Assets/UI/PauseMenu/RestartHover.png" id="9_1w3xe"]
+[ext_resource type="Texture2D" uid="uid://8c1glhhr1kdt" path="res://Assets/UI/MainMenu/Settings.png" id="10_5qt4m"]
+[ext_resource type="Texture2D" uid="uid://c1vlsqer5ux82" path="res://Assets/UI/MainMenu/SettingPressed.png" id="11_c3pff"]
+[ext_resource type="Texture2D" uid="uid://feauk8ek86pa" path="res://Assets/UI/MainMenu/SettingsHover.png" id="12_yvdrc"]
+[ext_resource type="Texture2D" uid="uid://bmh6763dc8ylb" path="res://Assets/UI/PauseMenu/QuitMenu.png" id="13_wu88t"]
+[ext_resource type="Texture2D" uid="uid://bwjxfxnocatgy" path="res://Assets/UI/PauseMenu/QuitMenuPressed.png" id="14_leikh"]
+[ext_resource type="Texture2D" uid="uid://dg7gxsce2yxlj" path="res://Assets/UI/PauseMenu/QuitMenuHover.png" id="15_eh1ol"]
 
 [sub_resource type="Animation" id="Animation_0ix0h"]
 resource_name = "EnterLevel"
@@ -56,8 +71,12 @@ _data = {
 &"RESET": SubResource("Animation_0dueh")
 }
 
+[sub_resource type="Theme" id="Theme_706bw"]
+
 [node name="UI" type="CanvasLayer" unique_id=1881455452]
+process_mode = 3
 script = ExtResource("1_0dueh")
+main_menu_scene = ExtResource("2_mbk43")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1695843961]
 libraries/ = SubResource("AnimationLibrary_0ix0h")
@@ -71,8 +90,8 @@ grow_vertical = 2
 mouse_filter = 1
 color = Color(0, 0, 0, 0)
 
-[node name="Crosshair" type="CenterContainer" parent="." unique_id=1622714558]
-custom_minimum_size = Vector2(5, 5)
+[node name="InGame" type="Control" parent="." unique_id=333270738]
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -80,8 +99,105 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="Crosshair" unique_id=845593440]
-custom_minimum_size = Vector2(5, 5)
-layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="InGame" unique_id=2114857912]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
+texture = ExtResource("2_706bw")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2077978207]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme = SubResource("Theme_706bw")
+
+[node name="Control" type="Control" parent="PanelContainer" unique_id=821665328]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Control" unique_id=1252200023]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.29166666
+anchor_top = 0.11111111
+anchor_right = 0.7088265
+anchor_bottom = 0.24687654
+offset_right = -0.56811523
+offset_bottom = 0.024002075
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5x44o")
+expand_mode = 1
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Resume" type="TextureButton" parent="PanelContainer/Control" unique_id=1141345165]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30555555
+anchor_top = 0.37037036
+anchor_right = 0.6961806
+anchor_bottom = 0.4861111
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_dwebp")
+texture_pressed = ExtResource("5_61j8b")
+texture_hover = ExtResource("6_k0geq")
+metadata/_edit_use_anchors_ = true
+
+[node name="Restart" type="TextureButton" parent="PanelContainer/Control" unique_id=243860780]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3046875
+anchor_top = 0.51080245
+anchor_right = 0.6953125
+anchor_bottom = 0.6265432
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_rqvxo")
+texture_pressed = ExtResource("8_mbk43")
+texture_hover = ExtResource("9_1w3xe")
+metadata/_edit_use_anchors_ = true
+
+[node name="Settings" type="TextureButton" parent="PanelContainer/Control" unique_id=2002216989]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3046875
+anchor_top = 0.654321
+anchor_right = 0.6953125
+anchor_bottom = 0.7700618
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("10_5qt4m")
+texture_pressed = ExtResource("11_c3pff")
+texture_hover = ExtResource("12_yvdrc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="TextureButton" parent="PanelContainer/Control" unique_id=1062363726]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3046875
+anchor_top = 0.80246913
+anchor_right = 0.6953125
+anchor_bottom = 0.91820985
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("13_wu88t")
+texture_pressed = ExtResource("14_leikh")
+texture_hover = ExtResource("15_eh1ol")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="PanelContainer/Control/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/Control/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PanelContainer/Control/Quit" to="." method="_on_quit_pressed"]

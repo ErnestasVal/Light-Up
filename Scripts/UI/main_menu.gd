@@ -5,17 +5,10 @@ extends Control
 @export var debug_level : PackedScene
 var _level_change_tween: Tween = null
 
-@onready var startButton : TextureButton = $Start
-@onready var selectButton : TextureButton = $LevelSelect
-@onready var debugButton : TextureButton = $DebugLevel
-@onready var settingsButton : TextureButton = $Settings
-@onready var quitButton : TextureButton = $Quit
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

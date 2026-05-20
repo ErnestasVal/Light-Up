@@ -241,6 +241,7 @@ albedo_color = Color(0.4821648, 0.70091337, 0.9062963, 0.15)
 roughness = 0.5
 
 [node name="DebugLevel" type="Node3D" unique_id=1710965241]
+process_mode = 1
 
 [node name="Level" type="Node" parent="." unique_id=827467859]
 

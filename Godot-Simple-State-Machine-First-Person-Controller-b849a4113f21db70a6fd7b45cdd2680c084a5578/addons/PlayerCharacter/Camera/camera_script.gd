@@ -5,8 +5,8 @@ class_name CameraObject
 
 
 @export_group("Camera variables")
-@export_range(0.0, 0.5, 0.001) var x_axis_sensibility : float = 0.05
-@export_range(0.0, 0.5, 0.001) var y_axis_sensibility : float = 0.05
+@export_range(0.0, 0.5, 0.001) var x_axis_sensitivity : float = 0.05
+@export_range(0.0, 0.5, 0.001) var y_axis_sensitivity : float = 0.05
 @export_range(-360.0, 0.0, 0.01) var max_up_angle_view : float = -90.0 #in degrees
 @export_range(0.0, 360.0, 0.01) var max_down_angle_view : float = 90.0 #in degrees
 @export_range(5.0, 175.0, 0.01) var fov : float = 90.0
@@ -142,9 +142,9 @@ func input_actions_check() -> void:
 		
 func _unhandled_input(event) -> void:
 	#manage camera rotation (360 on x axis, blocked at specified values on y axis, to not having the character do a complete head turn, which will be kinda weird)
-	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * (x_axis_sensibility / 10))
-		camera.rotate_x(-event.relative.y * (y_axis_sensibility / 10))
+	if event is InputEventMouseMotion and !mouse_free:
+		rotate_y(-event.relative.x * (x_axis_sensitivity / 10))
+		camera.rotate_x(-event.relative.y * (y_axis_sensitivity / 10))
 		#use of deg_to_rad, because we change the x axis rotation with rotation,x, which use radians instead of degrees
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(max_up_angle_view), deg_to_rad(max_down_angle_view))
 		

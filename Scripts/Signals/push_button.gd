@@ -8,7 +8,7 @@ func _ready() -> void:
 	momentary = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	checkInputs()
 
 func checkInputs() -> void:
