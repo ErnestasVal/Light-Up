@@ -35,8 +35,9 @@ func interact():
 	if !is_held && pickup_area.get_overlapping_areas().has(player.hitbox_area) && !player.has_picked_up_object:
 		if is_on_light:
 			is_on_light = false
-			light.lightColor = light.default_light_color
-			light.setLightValues()
+			if is_instance_valid(light):
+				light.lightColor = light.default_light_color
+				light.setLightValues()
 		is_held = true
 		player.picked_up_object = self
 		player.has_picked_up_object = true
@@ -67,20 +68,20 @@ func interact():
 		player.has_picked_up_object = false
 		player.picked_up_object = null
 		
-		var closest_light = _closest_pickupable()
+		var closest_light = _closest_light_base()
 		if closest_light:
 			is_on_light = true
 			light = closest_light
 			light.lightColor = filter_color
 			light.setLightValues()
 
-func _closest_pickupable() -> LightBase:
+func _closest_light_base() -> LightBase:
 	var closest = null
 	var closest_dist = INF
 	
 	for area in player.hitbox_area.get_overlapping_areas():
 		var obj = area.get_parent()  # adjust if your pickup_area is on the object itself
-		if obj.has_method("pickUp"):
+		if obj is LightBase:
 			var dist = obj.global_position.distance_to(player.global_position)
 			if dist < closest_dist:
 				closest_dist = dist

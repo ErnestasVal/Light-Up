@@ -153,11 +153,6 @@ func _apply_collision_height(height: float) -> void:
 
 func _apply_mesh_height(height: float) -> void:
 	var mesh_res = mesh.get_mesh()
-	print_debug("mesh_res:", mesh_res)
-	if mesh_res != null:
-		print_debug("mesh_res class:", mesh_res.get_class(), "is ArrayMesh:", mesh_res is ArrayMesh)
-	else:
-		print_debug("mesh_res is null")
 	if not (mesh_res is ArrayMesh):
 		return
 

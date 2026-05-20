@@ -7,7 +7,6 @@ var cameraRay : RayCast3D
 var lastCollisionPoint : Vector3 = Vector3.INF
 
 @onready var spotlightLegs : GeometryInstance3D = %Leg
-@onready var player : PlayerCharacter = get_tree().get_first_node_in_group("PlayerCharacter")
 @onready var pickup_area : Area3D = %PickUpArea
 @onready var rigidbody : RigidBody3D = $"."
 
@@ -17,6 +16,7 @@ func _ready() -> void:
 	super()
 
 func _process(_delta: float) -> void:
+	_handle_modify_input()
 	checkInputs()
 	if isPickedUp:
 		global_position = player.pick_up_point.global_position
