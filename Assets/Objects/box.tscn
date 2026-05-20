@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cxulmse7jyyoq"]
+
+[ext_resource type="Script" uid="uid://dd5r2osxwnd7h" path="res://Scripts/Activatables/box.gd" id="1_hpyji"]
+
+[sub_resource type="BoxMesh" id="CubeMesh_1"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_collision"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pickup"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[node name="Box" type="RigidBody3D" unique_id=552527976]
+collision_layer = 3
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+angular_damp = 25.0
+script = ExtResource("1_hpyji")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=57179321]
+mesh = SubResource("CubeMesh_1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1717979773]
+shape = SubResource("BoxShape3D_collision")
+
+[node name="PickupArea" type="Area3D" parent="." unique_id=1738966151]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea" unique_id=132363981]
+shape = SubResource("BoxShape3D_pickup")
