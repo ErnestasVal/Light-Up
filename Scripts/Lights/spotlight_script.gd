@@ -1,6 +1,8 @@
 class_name Spotlight
 extends LightBase
 
+@export var initial_light_head_target: Node3D
+
 var isPickedUp : bool = false
 var isFalling : bool = false
 var cameraRay : RayCast3D
@@ -14,6 +16,9 @@ func _ready() -> void:
 	if player != null:
 		cameraRay = player.cam_holder.camera_ray
 	super()
+
+	if is_instance_valid(initial_light_head_target):
+		_aim_light_head_at(initial_light_head_target.global_position)
 
 func _process(_delta: float) -> void:
 	_handle_modify_input()
@@ -41,6 +46,12 @@ func _process(_delta: float) -> void:
 			if rigidbody.linear_velocity.is_zero_approx():
 				lastCollisionPoint = Vector3.INF
 				isFalling = false
+
+
+func _aim_light_head_at(target_position: Vector3) -> void:
+	lightHead.look_at(target_position)
+	lightHead.rotation.x = -lightHead.rotation.x
+	lightHead.rotation_degrees.y = lightHead.rotation_degrees.y - 180
 
 func checkInputs() -> void:
 	if Input.is_action_just_pressed("activate_object"):

@@ -8,6 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://do03wbc710dv2" path="res://Levels/level_1.tscn" id="3_hllw6"]
 [ext_resource type="PackedScene" uid="uid://bgprkheochaus" path="res://Levels/Debug.tscn" id="4_qor8d"]
 [ext_resource type="PackedScene" uid="uid://bjb81x15yjowk" path="res://Assets/UI/UI.tscn" id="5_15p6s"]
+[ext_resource type="PackedScene" uid="uid://brvqs62vta2e8" path="res://Levels/level_2.tscn" id="7_y558p"]
+[ext_resource type="PackedScene" uid="uid://cr3nkpgnb8wlx" path="res://Levels/level_3.tscn" id="8_2eu7b"]
+[ext_resource type="PackedScene" uid="uid://bc7hp1r0ih5mg" path="res://Levels/level_4.tscn" id="9_updob"]
+[ext_resource type="PackedScene" uid="uid://du6q02767e5uq" path="res://Levels/level_5.tscn" id="10_gju5e"]
+[ext_resource type="PackedScene" uid="uid://b74302ew0lu5e" path="res://Levels/level_6.tscn" id="11_7b3dh"]
+[ext_resource type="PackedScene" uid="uid://cxln6iwpis8rk" path="res://Levels/level_7.tscn" id="12_68l63"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8md67"]
 viewport_path = NodePath("StaticBody3D/SubViewport")
@@ -47,7 +53,6 @@ size = Vector2i(1125, 750)
 [node name="MainMenu2D" parent="StaticBody3D/SubViewport" unique_id=1145908559 node_paths=PackedStringArray("overlay") instance=ExtResource("1_8md67")]
 overlay = NodePath("../../../UI")
 first_level = ExtResource("3_hllw6")
-debug_level = ExtResource("4_qor8d")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=407597410]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
@@ -64,6 +69,7 @@ omni_range = 1.0
 
 [node name="UI" parent="." unique_id=1881455452 instance=ExtResource("5_15p6s")]
 hudOn = false
+levels = Array[PackedScene]([ExtResource("4_qor8d"), ExtResource("3_hllw6"), ExtResource("7_y558p"), ExtResource("8_2eu7b"), ExtResource("9_updob"), ExtResource("10_gju5e"), ExtResource("11_7b3dh"), ExtResource("12_68l63")])
 
 [node name="Geometry" type="Node" parent="." unique_id=890192174]
 

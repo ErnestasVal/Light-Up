@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://b83yd1pe7b3p7" path="res://Assets/Objects/Blocks/floor.tscn" id="2_dilhk"]
 [ext_resource type="Texture2D" uid="uid://u53bpkdky75q" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_diff_1k.jpg" id="3_2hkqn"]
 [ext_resource type="PackedScene" uid="uid://dl656wpqmh8v7" path="res://Assets/Objects/Blocks/wall.tscn" id="3_rfktq"]
-[ext_resource type="PackedScene" uid="uid://d4dmvixcovuwx" path="res://Assets/Objects/Lights/spotlight.tscn" id="4_0urlm"]
 [ext_resource type="Texture2D" uid="uid://deyhkx1877ywj" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_rough_8k.png" id="4_34erp"]
 [ext_resource type="PackedScene" uid="uid://ok5pliquxvqu" path="res://Assets/Objects/Blocks/ceiling_with_light.tscn" id="4_77x7w"]
 [ext_resource type="PackedScene" uid="uid://c6teiik2qf4bs" path="res://Assets/Objects/Activatables/platform.tscn" id="5_77x7w"]
@@ -14,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bsfedtk52fg8y" path="res://Assets/Objects/Signals/floor_button.tscn" id="7_xoyoh"]
 [ext_resource type="PackedScene" uid="uid://1jwse6o4qcxl" path="res://Assets/Objects/Signals/push_button.tscn" id="8_f4pg2"]
 [ext_resource type="PackedScene" uid="uid://brvqs62vta2e8" path="res://Levels/level_2.tscn" id="8_rs4xw"]
+[ext_resource type="PackedScene" uid="uid://cxulmse7jyyoq" path="res://Assets/Objects/Activatables/box.tscn" id="11_2hkqn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cssof"]
 resource_name = "Floor"
@@ -42,7 +42,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_c7pbv"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_2hkqn"]
 resource_local_to_scene = true
 resource_name = "Floor_Cube_002"
 _surfaces = [{
@@ -61,7 +61,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_syv6h")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77l7m"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_34erp"]
 resource_local_to_scene = true
 resource_name = "DoorSeeThrough"
 transparency = 4
@@ -80,8 +80,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Platform" parent="Level/Activatables" unique_id=117024441 instance=ExtResource("5_77x7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, 0)
-mesh = SubResource("ArrayMesh_c7pbv")
-surface_material_override/0 = SubResource("StandardMaterial3D_77l7m")
+mesh = SubResource("ArrayMesh_2hkqn")
+surface_material_override/0 = SubResource("StandardMaterial3D_34erp")
 inverted = true
 
 [node name="Door" parent="Level/Activatables" unique_id=466823853 instance=ExtResource("6_xoyoh")]
@@ -101,8 +101,8 @@ activateObject = [NodePath("../../Activatables/Door")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -2)
 activateObject = [NodePath("../../Activatables/Platform")]
 
-[node name="Spotlight" parent="Level" unique_id=12900627 instance=ExtResource("4_0urlm")]
-transform = Transform3D(-0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660254, 6, 3, 0)
+[node name="Box" parent="Level" unique_id=552527976 instance=ExtResource("11_2hkqn")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 6, 3.3, 0)
 
 [node name="Geometry" type="Node3D" parent="Level" unique_id=769446268]
 

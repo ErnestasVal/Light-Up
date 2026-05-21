@@ -15,6 +15,34 @@
 [ext_resource type="Texture2D" uid="uid://bmh6763dc8ylb" path="res://Assets/UI/PauseMenu/QuitMenu.png" id="13_wu88t"]
 [ext_resource type="Texture2D" uid="uid://bwjxfxnocatgy" path="res://Assets/UI/PauseMenu/QuitMenuPressed.png" id="14_leikh"]
 [ext_resource type="Texture2D" uid="uid://dg7gxsce2yxlj" path="res://Assets/UI/PauseMenu/QuitMenuHover.png" id="15_eh1ol"]
+[ext_resource type="Texture2D" uid="uid://tm6h46d7qxsw" path="res://Assets/UI/LevelSelect/SelectLevel.png" id="16_c3pff"]
+[ext_resource type="Texture2D" uid="uid://xsr1a5cs26sg" path="res://Assets/UI/LevelSelect/1Level.png" id="17_olrsy"]
+[ext_resource type="Texture2D" uid="uid://dddhg5m23sqnm" path="res://Assets/UI/LevelSelect/Close.png" id="17_yvdrc"]
+[ext_resource type="Texture2D" uid="uid://cp7al3dhp67pg" path="res://Assets/UI/LevelSelect/1LevelPressed.png" id="18_4i7ck"]
+[ext_resource type="Texture2D" uid="uid://c4dlvqtj5vdd6" path="res://Assets/UI/LevelSelect/ClosePressed.png" id="18_wu88t"]
+[ext_resource type="Texture2D" uid="uid://2thxbmtefwtt" path="res://Assets/UI/LevelSelect/CloseHover.png" id="19_leikh"]
+[ext_resource type="Texture2D" uid="uid://cor5boqaalhls" path="res://Assets/UI/LevelSelect/1LevelHover.png" id="19_v3f1r"]
+[ext_resource type="Texture2D" uid="uid://c4jvwb8vsqas6" path="res://Assets/UI/LevelSelect/2Level.png" id="20_pgbbq"]
+[ext_resource type="Texture2D" uid="uid://c4kbr83dn2fra" path="res://Assets/UI/LevelSelect/2LevelPressed.png" id="21_uv0q4"]
+[ext_resource type="Texture2D" uid="uid://bexm2y14n04om" path="res://Assets/UI/LevelSelect/2LevelHover.png" id="22_6cbx4"]
+[ext_resource type="Texture2D" uid="uid://dwaprgoly56c3" path="res://Assets/UI/LevelSelect/3Level.png" id="23_o0666"]
+[ext_resource type="Texture2D" uid="uid://dtgerdxa0mx88" path="res://Assets/UI/LevelSelect/3LevelPressed.png" id="24_dqc1d"]
+[ext_resource type="Texture2D" uid="uid://bivx7m3mwtbju" path="res://Assets/UI/LevelSelect/3LevelHover.png" id="25_kyc2r"]
+[ext_resource type="Texture2D" uid="uid://pcwnocxtpwft" path="res://Assets/UI/LevelSelect/4Level.png" id="26_jrub2"]
+[ext_resource type="Texture2D" uid="uid://b21fqwy38h4c8" path="res://Assets/UI/LevelSelect/4LevelPressed.png" id="27_myxhx"]
+[ext_resource type="Texture2D" uid="uid://cxkqngbcrwnia" path="res://Assets/UI/LevelSelect/4LevelHover.png" id="28_mmou4"]
+[ext_resource type="Texture2D" uid="uid://drs8bl66xjdqf" path="res://Assets/UI/LevelSelect/5Level.png" id="29_r5eku"]
+[ext_resource type="Texture2D" uid="uid://dul3143oxpkg4" path="res://Assets/UI/LevelSelect/5LevelPressed.png" id="30_o0g50"]
+[ext_resource type="Texture2D" uid="uid://drm34xqevxc4o" path="res://Assets/UI/LevelSelect/5LevelHover.png" id="31_5lr40"]
+[ext_resource type="Texture2D" uid="uid://bqas5w8omk0an" path="res://Assets/UI/LevelSelect/6Level.png" id="32_v8gga"]
+[ext_resource type="Texture2D" uid="uid://chsnwu1wcccej" path="res://Assets/UI/LevelSelect/6LevelPressed.png" id="33_aq1mh"]
+[ext_resource type="Texture2D" uid="uid://cyundr8iehuq1" path="res://Assets/UI/LevelSelect/6LevelHover.png" id="34_bn0jx"]
+[ext_resource type="Texture2D" uid="uid://bxllj0rx7ie42" path="res://Assets/UI/LevelSelect/7Level.png" id="35_4otx5"]
+[ext_resource type="Texture2D" uid="uid://bldog8b5xqu31" path="res://Assets/UI/LevelSelect/7LevelPressed.png" id="36_b02fl"]
+[ext_resource type="Texture2D" uid="uid://cqdq3ryqmsxxe" path="res://Assets/UI/LevelSelect/7LevelHover.png" id="37_jhbsi"]
+[ext_resource type="Texture2D" uid="uid://c46n7mm1f4f5v" path="res://Assets/UI/LevelSelect/DLevel.png" id="38_yt0gg"]
+[ext_resource type="Texture2D" uid="uid://dtn6mrx4qvjp4" path="res://Assets/UI/LevelSelect/DLevelPressed.png" id="39_7nroq"]
+[ext_resource type="Texture2D" uid="uid://bmnusdd24v73o" path="res://Assets/UI/LevelSelect/DLevelHover.png" id="40_bkl8v"]
 
 [sub_resource type="Animation" id="Animation_0ix0h"]
 resource_name = "EnterLevel"
@@ -109,7 +137,7 @@ offset_right = 7.0
 offset_bottom = 7.0
 texture = ExtResource("2_706bw")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2077978207]
+[node name="PauseMenu" type="PanelContainer" parent="." unique_id=2077978207]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -121,10 +149,10 @@ size_flags_vertical = 4
 mouse_filter = 1
 theme = SubResource("Theme_706bw")
 
-[node name="Control" type="Control" parent="PanelContainer" unique_id=821665328]
+[node name="Control" type="Control" parent="PauseMenu" unique_id=821665328]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/Control" unique_id=1252200023]
+[node name="TextureRect" type="TextureRect" parent="PauseMenu/Control" unique_id=1252200023]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.29166666
@@ -140,7 +168,7 @@ expand_mode = 1
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Resume" type="TextureButton" parent="PanelContainer/Control" unique_id=1141345165]
+[node name="Resume" type="TextureButton" parent="PauseMenu/Control" unique_id=1141345165]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.30555555
@@ -154,7 +182,7 @@ texture_pressed = ExtResource("5_61j8b")
 texture_hover = ExtResource("6_k0geq")
 metadata/_edit_use_anchors_ = true
 
-[node name="Restart" type="TextureButton" parent="PanelContainer/Control" unique_id=243860780]
+[node name="Restart" type="TextureButton" parent="PauseMenu/Control" unique_id=243860780]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3046875
@@ -168,7 +196,7 @@ texture_pressed = ExtResource("8_mbk43")
 texture_hover = ExtResource("9_1w3xe")
 metadata/_edit_use_anchors_ = true
 
-[node name="Settings" type="TextureButton" parent="PanelContainer/Control" unique_id=2002216989]
+[node name="Settings" type="TextureButton" parent="PauseMenu/Control" unique_id=2002216989]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3046875
@@ -182,7 +210,7 @@ texture_pressed = ExtResource("11_c3pff")
 texture_hover = ExtResource("12_yvdrc")
 metadata/_edit_use_anchors_ = true
 
-[node name="Quit" type="TextureButton" parent="PanelContainer/Control" unique_id=1062363726]
+[node name="Quit" type="TextureButton" parent="PauseMenu/Control" unique_id=1062363726]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3046875
@@ -196,6 +224,126 @@ texture_pressed = ExtResource("14_leikh")
 texture_hover = ExtResource("15_eh1ol")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="PanelContainer/Control/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="PanelContainer/Control/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="PanelContainer/Control/Quit" to="." method="_on_quit_pressed"]
+[node name="LevelSelect" type="PanelContainer" parent="." unique_id=1549274718]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme = SubResource("Theme_706bw")
+
+[node name="Control" type="Control" parent="LevelSelect" unique_id=1139208569]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="LevelSelect/Control" unique_id=1385753433]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19444445
+anchor_top = 0.11111111
+anchor_right = 0.8055556
+anchor_bottom = 0.24687654
+offset_bottom = 0.024002075
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_c3pff")
+expand_mode = 1
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer" type="GridContainer" parent="LevelSelect/Control" unique_id=1474993265]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.5
+offset_top = -99.5
+offset_right = 223.5
+offset_bottom = 99.5
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="Level1" type="TextureButton" parent="LevelSelect/Control/GridContainer" unique_id=963230449]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("17_olrsy")
+texture_pressed = ExtResource("18_4i7ck")
+texture_hover = ExtResource("19_v3f1r")
+
+[node name="Level2" type="TextureButton" parent="LevelSelect/Control/GridContainer" unique_id=691706691]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+texture_normal = ExtResource("20_pgbbq")
+texture_pressed = ExtResource("21_uv0q4")
+texture_hover = ExtResource("22_6cbx4")
+
+[node name="Level3" type="TextureButton" parent="LevelSelect/Control/GridContainer" unique_id=1766554051]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+texture_normal = ExtResource("23_o0666")
+texture_pressed = ExtResource("24_dqc1d")
+texture_hover = ExtResource("25_kyc2r")
+
+[node name="Level4" type="TextureButton" parent="LevelSelect/Control/GridContainer" unique_id=930326425]
+layout_mode = 2
+texture_normal = ExtResource("26_jrub2")
+texture_pressed = ExtResource("27_myxhx")
+texture_hover = ExtResource("28_mmou4")
+
+[node name="Level5" type="TextureButton" parent="LevelSelect/Control/GridContainer" unique_id=2083897707]
+layout_mode = 2
+texture_normal = ExtResource("29_r5eku")
+texture_pressed = ExtResource("30_o0g50")
+texture_hover = ExtResource("31_5lr40")
+
+[node name="Level6" type="TextureButton" parent="LevelSelect/Control/GridContainer" unique_id=770783582]
+layout_mode = 2
+texture_normal = ExtResource("32_v8gga")
+texture_pressed = ExtResource("33_aq1mh")
+texture_hover = ExtResource("34_bn0jx")
+
+[node name="Level7" type="TextureButton" parent="LevelSelect/Control/GridContainer" unique_id=407577017]
+layout_mode = 2
+texture_normal = ExtResource("35_4otx5")
+texture_pressed = ExtResource("36_b02fl")
+texture_hover = ExtResource("37_jhbsi")
+
+[node name="LevelDebug" type="TextureButton" parent="LevelSelect/Control/GridContainer" unique_id=469755860]
+layout_mode = 2
+texture_normal = ExtResource("38_yt0gg")
+texture_pressed = ExtResource("39_7nroq")
+texture_hover = ExtResource("40_bkl8v")
+
+[node name="Close" type="TextureButton" parent="LevelSelect/Control" unique_id=1293343646]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3046875
+anchor_top = 0.8009259
+anchor_right = 0.6953125
+anchor_bottom = 0.9166667
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("17_yvdrc")
+texture_pressed = ExtResource("18_wu88t")
+texture_hover = ExtResource("19_leikh")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="PauseMenu/Control/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/Control/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PauseMenu/Control/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="LevelSelect/Control/GridContainer/Level1" to="." method="_on_level_pressed" binds= [1]]
+[connection signal="pressed" from="LevelSelect/Control/GridContainer/Level2" to="." method="_on_level_pressed" binds= [2]]
+[connection signal="pressed" from="LevelSelect/Control/GridContainer/Level3" to="." method="_on_level_pressed" binds= [3]]
+[connection signal="pressed" from="LevelSelect/Control/GridContainer/Level4" to="." method="_on_level_pressed" binds= [4]]
+[connection signal="pressed" from="LevelSelect/Control/GridContainer/Level5" to="." method="_on_level_pressed" binds= [5]]
+[connection signal="pressed" from="LevelSelect/Control/GridContainer/Level6" to="." method="_on_level_pressed" binds= [6]]
+[connection signal="pressed" from="LevelSelect/Control/GridContainer/Level7" to="." method="_on_level_pressed" binds= [7]]
+[connection signal="pressed" from="LevelSelect/Control/GridContainer/LevelDebug" to="." method="_on_level_pressed" binds= [0]]
+[connection signal="pressed" from="LevelSelect/Control/Close" to="." method="_on_close_pressed"]

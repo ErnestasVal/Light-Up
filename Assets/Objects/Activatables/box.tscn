@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxulmse7jyyoq"]
 
-[ext_resource type="Script" uid="uid://dd5r2osxwnd7h" path="res://Scripts/Activatables/box.gd" id="1_hpyji"]
+[ext_resource type="Script" uid="uid://dd5r2osxwnd7h" path="res://Scripts/Activatables/box.gd" id="1_r6dua"]
 
 [sub_resource type="BoxMesh" id="CubeMesh_1"]
 size = Vector3(0.6, 0.6, 0.6)
@@ -15,8 +15,9 @@ size = Vector3(1.5, 1.5, 1.5)
 collision_layer = 3
 axis_lock_angular_x = true
 axis_lock_angular_z = true
+can_sleep = false
 angular_damp = 25.0
-script = ExtResource("1_hpyji")
+script = ExtResource("1_r6dua")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=57179321]
 mesh = SubResource("CubeMesh_1")

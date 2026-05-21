@@ -2,7 +2,6 @@ extends Control
 
 @export var overlay : UI
 @export var first_level : PackedScene
-@export var debug_level : PackedScene
 var _level_change_tween: Tween = null
 
 
@@ -17,9 +16,9 @@ func _process(delta: float) -> void:
 
 func _on_start_pressed() -> void:
 	level_change(first_level)
-
-func _on_debug_level_pressed() -> void:
-	level_change(debug_level)
+	
+func _on_level_select_pressed() -> void:
+	overlay.show_level_select()
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()

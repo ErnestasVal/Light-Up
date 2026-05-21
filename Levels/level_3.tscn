@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cxln6iwpis8rk"]
+[gd_scene format=3 uid="uid://cr3nkpgnb8wlx"]
 
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/player_character_scene.tscn" id="1_4t7ew"]
 [ext_resource type="PackedScene" uid="uid://bc7hp1r0ih5mg" path="res://Levels/level_4.tscn" id="3_4t7ew"]

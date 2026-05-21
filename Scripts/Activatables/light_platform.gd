@@ -5,7 +5,7 @@ extends Node3D
 @export var minimum_hit_radius: float = 0.15
 @export var maximum_hit_radius_factor: float = 0.5
 @export var cell_size: float = 0.25
-@export var inverted: bool = true
+@export var inverted: bool = false
 @export var color_sensitive: bool = false
 @export var sensitive_color: Color = Color(1, 1, 1)
 @export var color_tolerance: float = 0.12

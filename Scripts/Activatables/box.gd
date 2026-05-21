@@ -7,9 +7,6 @@ var isFalling: bool = false
 @onready var pickup_area: Area3D = $PickupArea
 
 func _ready() -> void:
-	print_debug(player)
-	print_debug(player.hitbox_area)
-	print_debug(pickup_area)
 	pass
 
 

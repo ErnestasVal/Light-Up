@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://b7ybyt5oveooq" path="res://Assets/Objects/Activatables/level_change_floor.tscn" id="21_b7gbx"]
 [ext_resource type="PackedScene" uid="uid://bwtlb5owpa5kw" path="res://Assets/Objects/Activatables/light_platform.tscn" id="22_fmqkp"]
 [ext_resource type="PackedScene" uid="uid://dl4qhu40qdc5k" path="res://Assets/Objects/Activatables/stair.tscn" id="23_6dhhq"]
-[ext_resource type="PackedScene" uid="uid://cxulmse7jyyoq" path="res://Assets/Objects/box.tscn" id="23_ctwck"]
+[ext_resource type="PackedScene" uid="uid://cxulmse7jyyoq" path="res://Assets/Objects/Activatables/box.tscn" id="23_ctwck"]
 [ext_resource type="Texture2D" uid="uid://v1n5s3hufx0j" path="res://Assets/Models/BaseBlocks/Ramp_painted_metal_shutter_diff_1k.jpg" id="24_tbxqe"]
 [ext_resource type="Texture2D" uid="uid://c4elw55062646" path="res://Assets/Models/BaseBlocks/Ramp_painted_metal_shutter_rough_8k.png" id="25_ctwck"]
 [ext_resource type="Texture2D" uid="uid://bogauv7ifomf4" path="res://Assets/Models/BaseBlocks/Ramp_painted_metal_shutter_nor_gl_8k.png" id="26_y13qy"]

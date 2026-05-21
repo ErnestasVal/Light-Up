@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://b7ybyt5oveooq" path="res://Assets/Objects/Activatables/level_change_floor.tscn" id="4_6iucq"]
 [ext_resource type="Texture2D" uid="uid://u53bpkdky75q" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_diff_1k.jpg" id="4_fcg6d"]
 [ext_resource type="Texture2D" uid="uid://deyhkx1877ywj" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_rough_8k.png" id="5_3227t"]
-[ext_resource type="PackedScene" uid="uid://bgprkheochaus" path="res://Levels/Debug.tscn" id="5_utic7"]
 [ext_resource type="Texture2D" uid="uid://tmisfk2japql" path="res://Assets/Models/BaseBlocks/Floor_painted_metal_shutter_nor_gl_8k.png" id="6_lk1ng"]
 [ext_resource type="PackedScene" uid="uid://1jwse6o4qcxl" path="res://Assets/Objects/Signals/push_button.tscn" id="7_lk1ng"]
 [ext_resource type="PackedScene" uid="uid://cnagge4k0sc3j" path="res://Assets/Objects/Signals/solar_panel.tscn" id="7_x4mg1"]
+[ext_resource type="PackedScene" uid="uid://du6q02767e5uq" path="res://Levels/level_5.tscn" id="8_fcg6d"]
 [ext_resource type="PackedScene" uid="uid://d4dmvixcovuwx" path="res://Assets/Objects/Lights/spotlight.tscn" id="8_jovq6"]
 [ext_resource type="PackedScene" uid="uid://c3vqub7h5dxtw" path="res://Assets/Objects/Indicators/progress_panel.tscn" id="9_6iucq"]
 [ext_resource type="PackedScene" uid="uid://b83yd1pe7b3p7" path="res://Assets/Objects/Blocks/floor.tscn" id="9_g7gqs"]
@@ -43,7 +43,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_fcg6d"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_3227t"]
 resource_local_to_scene = true
 resource_name = "Floor_Cube_002"
 _surfaces = [{
@@ -62,16 +62,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_syv6h")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3227t"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lk1ng"]
 resource_local_to_scene = true
 resource_name = "DoorSeeThrough"
 transparency = 4
 cull_mode = 2
 albedo_color = Color(0.4821648, 0.70091337, 0.9062963, 0.15)
 roughness = 0.5
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_lk1ng"]
-viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_jovq6"]
 viewport_path = NodePath("SubViewport")
@@ -83,6 +80,9 @@ viewport_path = NodePath("SubViewport")
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qxw0v"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_y1fcd"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Level4" type="Node3D" unique_id=976912405]
@@ -99,14 +99,14 @@ transform = Transform3D(-0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.
 
 [node name="Platform" parent="Level/Activatables" unique_id=1861211319 instance=ExtResource("2_utic7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3, -4)
-mesh = SubResource("ArrayMesh_fcg6d")
-surface_material_override/0 = SubResource("StandardMaterial3D_3227t")
+mesh = SubResource("ArrayMesh_3227t")
+surface_material_override/0 = SubResource("StandardMaterial3D_lk1ng")
 neededToActivate = 4
 inverted = true
 
 [node name="LevelChangeFloor" parent="Level/Activatables" unique_id=74800637 instance=ExtResource("4_6iucq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -10)
-next_level = ExtResource("5_utic7")
+next_level = ExtResource("8_fcg6d")
 
 [node name="Door" parent="Level/Activatables" unique_id=466823853 instance=ExtResource("3_x4mg1")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4, 0, -8)
@@ -136,27 +136,27 @@ activateObject = [NodePath("../../Activatables/Platform")]
 
 [node name="ProgressPanel" parent="Level/Signals/Indicators" unique_id=1599876708 node_paths=PackedStringArray("signal_object") instance=ExtResource("9_6iucq")]
 transform = Transform3D(0.4, 0, 0, 0, -1.7484556e-08, -0.4, 0, 0.4, -1.7484556e-08, 0, 0.017847061, 0)
-texture = SubResource("ViewportTexture_lk1ng")
+texture = SubResource("ViewportTexture_jovq6")
 signal_object = NodePath("../../PushButton")
 
 [node name="ProgressPanel2" parent="Level/Signals/Indicators" unique_id=1553963671 node_paths=PackedStringArray("signal_object") instance=ExtResource("9_6iucq")]
 transform = Transform3D(0.4, 0, 0, 0, -1.7484556e-08, -0.4, 0, 0.4, -1.7484556e-08, 0, 0.017847061, -8)
-texture = SubResource("ViewportTexture_jovq6")
+texture = SubResource("ViewportTexture_g7gqs")
 signal_object = NodePath("../../PushButton2")
 
 [node name="ProgressPanel3" parent="Level/Signals/Indicators" unique_id=1263708783 node_paths=PackedStringArray("signal_object") instance=ExtResource("9_6iucq")]
 transform = Transform3D(0.4, 0, 0, 0, -1.7484556e-08, -0.4, 0, 0.4, -1.7484556e-08, 8, 0.017847061, -8)
-texture = SubResource("ViewportTexture_g7gqs")
+texture = SubResource("ViewportTexture_lvag0")
 signal_object = NodePath("../../PushButton3")
 
 [node name="ProgressPanel4" parent="Level/Signals/Indicators" unique_id=914350252 node_paths=PackedStringArray("signal_object") instance=ExtResource("9_6iucq")]
 transform = Transform3D(0.4, 0, 0, 0, -1.7484556e-08, -0.4, 0, 0.4, -1.7484556e-08, 8, 0.017847061, 0)
-texture = SubResource("ViewportTexture_lvag0")
+texture = SubResource("ViewportTexture_qxw0v")
 signal_object = NodePath("../../PushButton4")
 
 [node name="ProgressPanel5" parent="Level/Signals/Indicators" unique_id=1626614907 node_paths=PackedStringArray("signal_object") instance=ExtResource("9_6iucq")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10, 5.794473, -4)
-texture = SubResource("ViewportTexture_qxw0v")
+texture = SubResource("ViewportTexture_y1fcd")
 signal_object = NodePath("../../SolarPanel")
 
 [node name="Geometry" type="Node3D" parent="Level" unique_id=1103281812]

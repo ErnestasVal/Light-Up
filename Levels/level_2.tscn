@@ -13,9 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://c3vqub7h5dxtw" path="res://Assets/Objects/Indicators/progress_panel.tscn" id="7_4pbjs"]
 [ext_resource type="PackedScene" uid="uid://bsfedtk52fg8y" path="res://Assets/Objects/Signals/floor_button.tscn" id="7_5yfph"]
 [ext_resource type="PackedScene" uid="uid://d4dmvixcovuwx" path="res://Assets/Objects/Lights/spotlight.tscn" id="9_jcvcn"]
-[ext_resource type="PackedScene" uid="uid://cxln6iwpis8rk" path="res://Levels/level_3.tscn" id="13_lmqi1"]
+[ext_resource type="PackedScene" path="res://Levels/level_3.tscn" id="13_lmqi1"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5yfph"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lmqi1"]
 resource_local_to_scene = true
 resource_name = "DoorSeeThrough"
 transparency = 4
@@ -23,10 +23,10 @@ cull_mode = 2
 albedo_color = Color(0.4821648, 0.70091337, 0.9062963, 0.15)
 roughness = 0.5
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_w6yvm"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5yfph"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_jcvcn"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_w6yvm"]
 viewport_path = NodePath("../ProgressPanel/SubViewport")
 
 [node name="Level2" type="Node3D" unique_id=69862120]
@@ -47,7 +47,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 
 [node name="Platform" parent="Level/Activatables" unique_id=1861211319 instance=ExtResource("4_4pbjs")]
 transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 3, 5.5, 0, -12)
-surface_material_override/0 = SubResource("StandardMaterial3D_5yfph")
+surface_material_override/0 = SubResource("StandardMaterial3D_lmqi1")
 neededToActivate = 2
 
 [node name="Signals" type="Node" parent="Level" unique_id=1390833995]
@@ -70,23 +70,21 @@ activateObject = [NodePath("../../Activatables/Door")]
 
 [node name="ProgressPanel" parent="Level/Signals/Indicators" unique_id=1599876708 node_paths=PackedStringArray("signal_object") instance=ExtResource("7_4pbjs")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 4, 1, -16.981302)
-texture = SubResource("ViewportTexture_w6yvm")
+texture = SubResource("ViewportTexture_5yfph")
 signal_object = NodePath("../../SolarPanel")
 
 [node name="ProgressPanel2" parent="Level/Signals/Indicators" unique_id=1673419604 node_paths=PackedStringArray("signal_object") instance=ExtResource("7_4pbjs")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -0.98972833, 2, -12)
-texture = SubResource("ViewportTexture_jcvcn")
+texture = SubResource("ViewportTexture_w6yvm")
 signal_object = NodePath("../../SolarPanel2")
 
 [node name="Spotlight" parent="Level" unique_id=12900627 instance=ExtResource("9_jcvcn")]
 transform = Transform3D(-0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660254, 6, 0, 0)
 angle = 5.0
-range = 2.0
 
 [node name="Spotlight2" parent="Level" unique_id=1909736790 instance=ExtResource("9_jcvcn")]
 transform = Transform3D(-0.86602557, 0, 0.4999999, 0, 1, 0, -0.4999999, 0, -0.86602557, 0, 0, -4)
 angle = 5.0
-range = 10.0
 
 [node name="Geometry" type="Node3D" parent="Level" unique_id=1045942509]
 
