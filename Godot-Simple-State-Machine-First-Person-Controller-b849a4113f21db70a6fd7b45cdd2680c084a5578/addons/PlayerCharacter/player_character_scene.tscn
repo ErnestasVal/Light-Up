@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d3s8yxuvpmekm" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/StateMachine/player_character_script.gd" id="1_h128t"]
 [ext_resource type="Script" uid="uid://b0fbr48rbvn27" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/Camera/camera_script.gd" id="2_x12n0"]
-[ext_resource type="PackedScene" uid="uid://dfdyaci0m2g47" path="res://Assets/UI/UI.tscn" id="9_rxt4u"]
+[ext_resource type="PackedScene" uid="uid://bjb81x15yjowk" path="res://Assets/UI/UI.tscn" id="9_rxt4u"]
 [ext_resource type="StyleBox" uid="uid://c50syhy1a4dmh" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/UI/player_character_ui_theme.tres" id="11_kcsu1"]
 [ext_resource type="LabelSettings" uid="uid://d1rg1oruwidf" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/UI/label_font_setting.tres" id="12_gnmoh"]
 [ext_resource type="Script" uid="uid://dx02l6p6behb8" path="res://Godot-Simple-State-Machine-First-Person-Controller-b849a4113f21db70a6fd7b45cdd2680c084a5578/addons/PlayerCharacter/UI/hud_script.gd" id="16_5jm78"]
@@ -137,9 +137,6 @@ debug_shape_custom_color = Color(0, 0, 0.956863, 1)
 [node name="PickUpPointRay" type="RayCast3D" parent="Raycasts" unique_id=386904563]
 unique_name_in_owner = true
 target_position = Vector3(0.75, -0.35, -1)
-
-[node name="UI" parent="." unique_id=1881455452 instance=ExtResource("9_rxt4u")]
-unique_name_in_owner = true
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=382546849]
 unique_name_in_owner = true
@@ -439,3 +436,5 @@ theme_override_font_sizes/font_size = 40
 text = "....."
 label_settings = ExtResource("12_gnmoh")
 vertical_alignment = 1
+
+[node name="UI" parent="." unique_id=1881455452 instance=ExtResource("9_rxt4u")]

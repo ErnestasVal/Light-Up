@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d4dmvixcovuwx" path="res://Assets/Objects/Lights/spotlight.tscn" id="3_3es34"]
 [ext_resource type="PackedScene" uid="uid://do03wbc710dv2" path="res://Levels/level_1.tscn" id="3_hllw6"]
 [ext_resource type="PackedScene" uid="uid://bgprkheochaus" path="res://Levels/Debug.tscn" id="4_qor8d"]
-[ext_resource type="PackedScene" uid="uid://dfdyaci0m2g47" path="res://Assets/UI/UI.tscn" id="5_15p6s"]
+[ext_resource type="PackedScene" uid="uid://bjb81x15yjowk" path="res://Assets/UI/UI.tscn" id="5_15p6s"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8md67"]
 viewport_path = NodePath("StaticBody3D/SubViewport")
@@ -55,13 +55,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
 [node name="Spotlight" parent="." unique_id=12900627 instance=ExtResource("3_3es34")]
 transform = Transform3D(-0.8021196, 0, -0.59716326, 0, 1, 0, 0.59716326, 0, -0.8021196, 1.4, 6, 1)
 angle = 40.0
-range = 7.0
 energy = 7.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Spotlight" unique_id=1358310281]
 transform = Transform3D(-0.80211973, 0, 0.5971633, 0, 1, 0, -0.5971633, 0, -0.80211973, 0.5389228, 1, -0.22170031)
 light_energy = 0.75
 omni_range = 1.0
+
+[node name="UI" parent="." unique_id=1881455452 instance=ExtResource("5_15p6s")]
+hudOn = false
 
 [node name="Geometry" type="Node" parent="." unique_id=890192174]
 
@@ -117,8 +119,5 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 3
 
 [node name="Wall10" parent="Geometry" unique_id=1802663078 instance=ExtResource("2_8md67")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 3, 0)
-
-[node name="UI" parent="." unique_id=1881455452 instance=ExtResource("5_15p6s")]
-hudOn = false
 
 [connection signal="input_event" from="StaticBody3D" to="StaticBody3D" method="_on_input_event"]

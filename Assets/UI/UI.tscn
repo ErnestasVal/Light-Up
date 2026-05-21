@@ -1,8 +1,7 @@
-[gd_scene format=3 uid="uid://dfdyaci0m2g47"]
+[gd_scene format=3 uid="uid://bjb81x15yjowk"]
 
 [ext_resource type="Script" uid="uid://cpvr0tnjx2aqp" path="res://Assets/UI/ui.gd" id="1_0dueh"]
 [ext_resource type="Texture2D" uid="uid://bj6xjtnw3golh" path="res://Assets/UI/Pictures/crosshair.png" id="2_706bw"]
-[ext_resource type="PackedScene" uid="uid://d32x3fbw6ppo5" path="res://Levels/main_menu.tscn" id="2_mbk43"]
 [ext_resource type="Texture2D" uid="uid://c4tyw0fb4fy2c" path="res://Assets/UI/PauseMenu/Paused.png" id="3_5x44o"]
 [ext_resource type="Texture2D" uid="uid://daa8ed2pblyx" path="res://Assets/UI/PauseMenu/Resume.png" id="4_dwebp"]
 [ext_resource type="Texture2D" uid="uid://c6qv7otbnetni" path="res://Assets/UI/PauseMenu/ResumePressed.png" id="5_61j8b"]
@@ -76,7 +75,6 @@ _data = {
 [node name="UI" type="CanvasLayer" unique_id=1881455452]
 process_mode = 3
 script = ExtResource("1_0dueh")
-main_menu_scene = ExtResource("2_mbk43")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1695843961]
 libraries/ = SubResource("AnimationLibrary_0ix0h")
